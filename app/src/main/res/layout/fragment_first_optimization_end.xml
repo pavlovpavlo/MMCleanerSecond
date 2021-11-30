@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFF8E1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/green_bg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="46dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="56sp"
+                android:layout_marginStart="35dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/proxima_nova_light"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GB"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/proxima_nova_semibold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unnecessary_files"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/proxima_nova_regular"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="50dp"
+            android:background="#33FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="14sp"
+            android:fontFamily="@font/proxima_nova_regular"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="@string/treatment"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/screen_no_optimized"
+                android:layout_width="match_parent"
+                android:visibility="invisible"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_backgound_process"
+                        android:paddingTop="24dp"
+                        android:paddingBottom="24dp"
+                        android:paddingStart="33dp"
+                        android:paddingEnd="33dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/step_2"
+                            android:textColor="@color/color_333A44"
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/clean_up_ram_and_speed_up_your_phone"
+                            android:textColor="@color/color_333A44"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/clear_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ic_backgound_main_btn"
+                        android:fontFamily="@font/proxima_nova_bold"
+                        android:text="@string/speed_up"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="13dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ads_block"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ic_backgound_ads"
+                    android:layout_weight="1">
+                    <com.google.android.gms.ads.AdView
+                        xmlns:ads="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/adView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        ads:adSize="FLUID"
+                        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+                    </com.google.android.gms.ads.AdView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/screen_optimized"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    layout="@layout/ads_loader"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+    <include
+        layout="@layout/dialog_access"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

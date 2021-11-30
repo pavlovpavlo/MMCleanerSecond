@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ads_block"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_backgound_ads"
+        android:orientation="vertical">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:layout_constraintTop_toTopOf="parent"
+            ads:adSize="FLUID"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+        </com.google.android.gms.ads.AdView>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            layout="@layout/ads_loader"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/ram_used"
+                android:textColor="@color/color_333A44_60"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ram_procent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="63%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/color_333A44"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/cpu_temperature"
+                android:textColor="@color/color_333A44_60"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/cpu_temp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="43 С"
+                android:textAlignment="textEnd"
+                android:textColor="@color/color_333A44"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/battery_charge"
+                android:textColor="@color/color_333A44_60"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/battery_charge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="48%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/color_333A44"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/free_memory"
+                android:textColor="@color/color_333A44_60"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/free_memory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="33%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/color_333A44"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/applications_in_the_background"
+                android:textColor="@color/color_333A44_60"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/app_in_background"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="22 app"
+                android:textAlignment="textEnd"
+                android:textColor="@color/color_333A44"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/consuming_applications"
+                android:textColor="@color/color_333A44_60"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/consuming_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="12 app"
+                android:textAlignment="textEnd"
+                android:textColor="@color/color_333A44"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_semibold"
+                android:text="@string/unnecessary_files"
+                android:textColor="@color/primary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/unncessary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova_semibold"
+                android:text="2.1 Gb"
+                android:textAlignment="textEnd"
+                android:textColor="@color/primary"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/clear_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="31dp"
+            android:background="@drawable/ic_backgound_main_btn"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/clear"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

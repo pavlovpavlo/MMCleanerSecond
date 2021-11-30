@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/container_access"
+    android:visibility="gone"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:background="#F2FFFFFF"
+    android:orientation="vertical"
+    android:paddingStart="46dp"
+    android:paddingEnd="45dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
+
+    <TextView
+        android:id="@+id/first_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:text="@string/allow_mm_cleaner_to_acess_your_app_statistics"
+        android:textColor="@color/color_2F2C4C"
+        android:textAlignment="center"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:text="@string/find_mm_cleaner_and_turn_it_on"
+        android:textColor="@color/color_8E9AAB"
+        android:textAlignment="center"
+        android:layout_marginTop="12dp"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/youtube_access"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:src="@drawable/gmail_access"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:src="@drawable/mmcleaner_access"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:layout_weight="1.4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/allow_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ic_backgound_main_btn"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/allow"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/disallow_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/ic_backgound_disallow_btn"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/disallow"
+            android:textAllCaps="false"
+            android:textColor="@color/color_333A44"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ustbilgi"
+    android:layout_width="128dp"
+    android:layout_height="128dp"
+    android:layout_margin="8dp"
+    android:gravity="center">
+
+
+    <RelativeLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_4" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstLayout"
+        android:layout_centerHorizontal="true"
+        android:text="Wait 5 second"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

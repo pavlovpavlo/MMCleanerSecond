@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/battery_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/battery_empty"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="@id/battery_border"
+            app:layout_constraintEnd_toEndOf="@id/battery_border"
+            app:layout_constraintTop_toTopOf="@id/battery_border"
+            app:layout_constraintBottom_toBottomOf="@id/battery_border"/>
+
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/battery_scaner_orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="15dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="@id/battery_border"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_battery_smile_bad"
+            app:layout_constraintTop_toTopOf="@id/battery_image"
+            app:layout_constraintStart_toStartOf="@id/battery_image"
+            app:layout_constraintEnd_toEndOf="@id/battery_image"
+            android:layout_marginTop="60dp"/>
+
+        <ImageView
+            android:id="@+id/battery_border"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="59dp"
+            android:src="@drawable/ic_battery_orange_border"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:textSize="25sp"
+        android:textColor="@color/color_2F2C4C"
+        android:layout_marginBottom="36dp"
+        android:text="@string/scanning"
+        android:gravity="center"/>
+
+</LinearLayout>

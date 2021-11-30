@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#F2FFFFFF"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_dialog_bg"
+        android:orientation="vertical"
+        android:paddingTop="39dp"
+        android:paddingEnd="27dp"
+        android:layout_margin="39dp"
+        android:gravity="center"
+        android:paddingStart="27dp"
+        android:paddingBottom="17dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/the_phone_is_not_fully_noptimized"
+            android:textColor="@color/color_2F2C4C"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/quit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="19dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/proxima_nova_regular"
+            android:text="@string/clear_cache_and_temporary_files_to_improve_phone_performance"
+            android:textColor="@color/color_333A44"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/clear_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/ic_backgound_main_btn"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/clear"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/exit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/exit"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_28BB63"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
