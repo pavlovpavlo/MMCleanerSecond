@@ -43,7 +43,6 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
         MyApplication.get().setCurrentScreen(19)
 
         backBtn = findViewById(R.id.back_btn)
