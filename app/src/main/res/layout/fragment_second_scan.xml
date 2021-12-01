@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="246dp"
+        android:layout_marginTop="134dp"
+        android:layout_height="246dp">
+        <cn.septenary.ui.widget.GradientProgressBar
+            android:id="@+id/bar2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:anim_duration="4000"
+            app:border_background="#0D000000"
+            app:border_width="15dp"
+            app:end_color="#CCFE0101"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progress="0"
+            app:progress_max="100"
+            app:rotate="-90"
+            app:start_color="#CCFD962C" />
+
+        <cn.septenary.ui.widget.GradientProgressBar
+            android:id="@+id/bar_orange"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:anim_duration="4000"
+            app:border_background="#0D000000"
+            app:border_width="15dp"
+            app:end_color="#CCFD962C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progress="0"
+            app:progress_max="100"
+            app:rotate="-90"
+            app:start_color="#CCFFB154" />
+
+        <cn.septenary.ui.widget.GradientProgressBar
+            android:id="@+id/bar_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:anim_duration="4000"
+            app:border_background="#0D000000"
+            app:border_width="15dp"
+            app:end_color="#CC28BB63"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progress="0"
+            app:progress_max="100"
+            app:rotate="-90"
+            app:start_color="#CC43FE01" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/rocket"/>
+            <TextView
+                android:id="@+id/proc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_bold"
+                android:textSize="20sp"
+                android:textColor="@color/color_333A44"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/mem_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/color_333A44"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:textSize="25sp"
+        android:textColor="@color/color_2F2C4C"
+        android:layout_marginBottom="100dp"
+        android:text="@string/scaning"
+        android:gravity="center"/>
+
+
+</LinearLayout>

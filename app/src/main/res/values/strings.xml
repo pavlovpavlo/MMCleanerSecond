@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">MM Cleaner</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="tap_to_start_scan_and_analyze_your_phone">Tap to start scan and analyze your phone</string>
+    <string name="scan_and_analize">Scan and analize</string>
+    <string name="scaning">Scanning...</string>
+    <string name="brand">Brand</string>
+    <string name="model">Model</string>
+    <string name="android">Android</string>
+    <string name="cpu">CPU</string>
+    <string name="ram">RAM</string>
+    <string name="memory">Memory</string>
+    <string name="clear">Clear</string>
+    <string name="ram_used">RAM used</string>
+    <string name="cpu_temperature">CPU temperature</string>
+    <string name="battery_charge">Battery charge</string>
+    <string name="free_memory">Free memory</string>
+    <string name="applications_in_the_background">Applications in the background</string>
+    <string name="consuming_applications">Consuming applications</string>
+    <string name="unnecessary_files">Unnecessary files</string>
+    <string name="loading_ads">Loading ADS</string>
+    <string name="speed_up">Speed up</string>
+    <string name="step_2">Step 2</string>
+    <string name="clean_up_ram_and_speed_up_your_phone">Clean up RAM and speed up your phone</string>
+    <string name="last_step">Last step</string>
+    <string name="optimize_battery_consumption">Optimize battery consumption</string>
+    <string name="optimize">Optimize</string>
+    <string name="your_phone_has_been_successfully_optimized">Your phone has been successfully optimized!</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="to_main">To main</string>
+    <string name="rate_us">Rate us</string>
+    <string name="do_you_like">Do you like the app? Put 5!</string>
+    <string name="your_phone_is_not_optimized">Your phone is not optimized!</string>
+    <string name="follow_these_steps">Follow these steps to get your phone running faster!</string>
+
+    <string name="this_function_is_already_optimized">This function is already optimized</string>
+
+    <!-- Notifications -->
+    <string name="notification_clear">Clear</string>
+    <string name="notification_cancel">Cancel</string>
+    <string name="notification_optimize">Optimize</string>
+    <string name="notification_percent_placeholder">%d%%</string>
+    <string name="notification_mb_placeholder">%.1fMB</string>
+
+    <!-- Battery -->
+    <string name="notification_charging_placeholder">Charging %d%%</string>
+    <string name="notification_programs_slow_down_text_placeholder">%d programs slow down the charging speed</string>
+
+    <string name="notification_residual_data_found">Residual data found</string>
+    <string name="notification_after_unloading_placeholder">after unloading, the remainder of <b>%.1fMB</b>\nwas found cleaning to get a lot of memory</string>
+    <string name="notification_ads_trash">Ads rubbish</string>
+    <string name="notification_apps_cache">Apps cache</string>
+    <string name="notification_other_trash">Other garbage</string>
+
+    <string name="notification_daily_title"><font color="#333A44">MM</font> <font color="#FE6201">CLEANER</font></string>
+    <string name="notification_daily_description">You haven\'t cleaned the trash in <font color="#FE6201">1 day</font></string>
+</resources>

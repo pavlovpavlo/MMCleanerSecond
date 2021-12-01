@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:paddingStart="18dp"
+    android:paddingEnd="15dp"
+    android:layout_marginTop="14dp"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/program_image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_document_text"/>
+
+    <TextView
+        android:id="@+id/program_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="Telegram"
+        android:textColor="@color/color_333A44"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="7dp"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/program_size"
+        android:layout_width="wrap_content"
+        android:textAlignment="textEnd"
+        android:layout_height="wrap_content"
+        android:text="180 mb"
+        android:textColor="@color/color_8E9AAB"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="14dp"
+        android:textSize="14sp"/>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:checked="true"
+        android:background="@android:color/transparent"
+        android:button="@drawable/ic_checkbox_button"
+        android:padding="0dp" />
+
+</LinearLayout>

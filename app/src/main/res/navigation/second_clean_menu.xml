@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_third_clean"
+    app:startDestination="@id/fragment_second_scan">
+    <fragment
+        android:id="@+id/fragment_second_scan"
+        android:name="com.agento.mmcleaner.ui.clean.second_clean.SecondScanFragment"
+        android:label="fragment_second_scan"
+        tools:layout="@layout/fragment_second_scan" />
+    <fragment
+        android:id="@+id/fragment_second_scan_end"
+        android:name="com.agento.mmcleaner.ui.clean.second_clean.SecondScanEndFragment"
+        android:label="fragment_second_scan_end"
+        tools:layout="@layout/fragment_second_scan_end" />
+    <fragment
+        android:id="@+id/fragment_second_optimization"
+        android:name="com.agento.mmcleaner.ui.clean.second_clean.SecondOptimizationFragment"
+        android:label="fragment_second_optimization"
+        tools:layout="@layout/fragment_second_optimization" />
+</navigation>

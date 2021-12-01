@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="scan_image_size">286dp</dimen>
+    <dimen name="top_margin_second_optim">134dp</dimen>
+    <dimen name="top_margin_second_optim_text">88dp</dimen>
+    <dimen name="second_optimizet_title_margin_top">57dp</dimen>
+    <dimen name="main_item_tab_text">11sp</dimen>
+</resources>

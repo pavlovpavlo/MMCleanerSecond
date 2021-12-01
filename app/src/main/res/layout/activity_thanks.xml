@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ui.thanks.ThanksActivity">
+
+    <ImageView
+        android:layout_width="143dp"
+        android:layout_height="148dp"
+        android:src="@drawable/ic_logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:text="Thanks!"
+        android:layout_marginTop="75dp"
+        android:textColor="@color/color_333A44"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:text="We will continue to protect your phone"
+        android:textColor="@color/color_333A44"
+        android:layout_marginTop="21dp"
+        android:textSize="18sp" />
+
+</LinearLayout>

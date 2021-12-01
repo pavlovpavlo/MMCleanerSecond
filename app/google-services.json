@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "573058771748",
+    "project_id": "mm-cleaner",
+    "storage_bucket": "mm-cleaner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573058771748:android:5616a6eeab92509382a1b1",
+        "android_client_info": {
+          "package_name": "com.agento.mmcleaner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573058771748-gg326k7cfbrnijgfk1llt5fn28ih2bkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh0DASIxiazIIeCzVvF0XFBRURG2eujwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573058771748-gg326k7cfbrnijgfk1llt5fn28ih2bkc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
