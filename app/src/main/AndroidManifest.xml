@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera.flash" />
+
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission
         android:name="android.permission.CLEAR_APP_CACHE"
@@ -31,45 +33,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MMCleaner">
-        <activity android:name=".ui.optimized.AllCompleteActivity"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+        <activity android:name=".ui.setting.SelectLanguageActivity"></activity>
+        <activity
+            android:name=".ui.optimized.AllCompleteActivity"
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.PrivacyPolicyActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.optimized.PhoneNoOptimizedActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.optimized.PhoneOptimizedActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.setting.SettingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation">
-        </activity>
+            android:theme="@style/Theme.MMCleaner.Animation"></activity>
         <activity
             android:name=".ui.main.SecondMainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.clean.third_clean.ThirdCleanActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.clean.third_clean.ThirdOptimizationEndActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.clean.second_clean.SecondCleanActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.clean.second_clean.SecondOptimizationEndActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.clean.first_clean.FirstCleanActivity"
             android:screenOrientation="portrait" />
@@ -82,26 +85,24 @@
         <activity
             android:name=".ui.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.main.FirstMainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.thanks.ThanksActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MMCleaner.Animation"/>
+            android:theme="@style/Theme.MMCleaner.Animation" />
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:screenOrientation="portrait"
-
+            android:exported="true"
             android:noHistory="true"
-            android:exported="true">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
         <activity
@@ -113,7 +114,8 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~6300978111" />
 
-        <receiver android:name=".util.widget.SimpleWidgetProvider"
+        <receiver
+            android:name=".util.widget.SimpleWidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

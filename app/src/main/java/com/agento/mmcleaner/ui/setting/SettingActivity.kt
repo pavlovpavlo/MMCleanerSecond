@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.PrivacyPolicyActivity
 import com.agento.mmcleaner.ui.optimized.PhoneOptimizedActivity
 import com.agento.mmcleaner.ui.splash.SplashActivity
@@ -25,7 +26,7 @@ import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.widget.SimpleWidgetProvider
 
 
-class SettingActivity : AppCompatActivity() {
+class SettingActivity : BaseActivity(R.layout.activity_setting) {
 
     lateinit var switchCompat: SwitchCompat
     lateinit var switchBg: LinearLayout
@@ -35,6 +36,7 @@ class SettingActivity : AppCompatActivity() {
     lateinit var update: LinearLayout
     lateinit var policy: LinearLayout
     lateinit var rate: LinearLayout
+    lateinit var lang: LinearLayout
     lateinit var backBtn: ImageView
     lateinit var appWidgetManager: AppWidgetManager
     lateinit var appWidgetHost: AppWidgetHost
@@ -43,7 +45,6 @@ class SettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
         backBtn = findViewById(R.id.back_btn)
         notificationSwitch = findViewById(R.id.notification_switch)
         switchCompat = findViewById(R.id.switch_control)
@@ -55,9 +56,14 @@ class SettingActivity : AppCompatActivity() {
         update = findViewById(R.id.update)
         policy = findViewById(R.id.privacy_policy)
         rate = findViewById(R.id.rate_us)
+        lang = findViewById(R.id.languages)
 
         backBtn.setOnClickListener {
             finish()
+        }
+
+        lang.setOnClickListener {
+            startActivity(Intent(this, SelectLanguageActivity::class.java))
         }
 
         notificationSwitch.setOnClickListener {

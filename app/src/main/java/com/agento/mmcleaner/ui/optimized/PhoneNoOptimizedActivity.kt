@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.Navigation
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.scan_util.model.JunkInfo
+import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.MainActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstScanActivity
@@ -33,7 +34,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
 import java.util.*
 
-class PhoneNoOptimizedActivity : AppCompatActivity() {
+class PhoneNoOptimizedActivity : BaseActivity(R.layout.activity_phone_no_optimized) {
 
     private lateinit var firstTab: LinearLayout
     private lateinit var secondTab: LinearLayout
@@ -50,7 +51,6 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_phone_no_optimized)
 
         initViews()
         initAds()

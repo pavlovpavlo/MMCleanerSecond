@@ -240,7 +240,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
         if (isAdvertisingScanning && isApkScanning && isCacheScanning && isTemporaryScanning) {
             clearBtn.visibility = View.VISIBLE
             stopAnimation()
-            titleText.text = "Done..."
+            titleText.text = getString(R.string.done)
             loader.visibility = View.INVISIBLE
         }
     }

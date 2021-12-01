@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.agento.mmcleaner.util.LocaleHelper;
 
 
 public class BaseFragment extends Fragment {
@@ -36,7 +37,7 @@ public class BaseFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
+        super.onAttach(LocaleHelper.onAttach(context));
         if (context instanceof BaseActivity) {
             mainActivity = (BaseActivity) context;
         }

@@ -39,8 +39,8 @@ class RunProgramsAdapter(
 
         if (position == 0) {
             holder.programImage.setImageResource(R.drawable.ic_category)
-            holder.programName.text = "Choose all"
-            holder.programSize.text = "${mList.size - 1} applications"
+            holder.programName.text = holder.itemView.context.getString(R.string.chose_all)
+            holder.programSize.text = "${mList.size - 1}" + holder.itemView.context.getString(R.string.count_app)
         } else {
             val pm: PackageManager = activity.packageManager
 

@@ -17,6 +17,7 @@ import com.agento.mmcleaner.ui.clean.second_clean.adapters.OnChangeProgramChecke
 import com.agento.mmcleaner.ui.clean.second_clean.adapters.RunProgramsAdapter
 import com.agento.mmcleaner.util.UStats
 import com.agento.mmcleaner.util.Util
+import com.agento.mmcleaner.util.UtilPhoneInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -59,6 +60,10 @@ class ThirdScanEndFragment : Fragment(R.layout.fragment_third_scan_end) {
 
     private fun initList() {
         runAppsList.layoutManager = LinearLayoutManager(requireContext())
+        for(i in 1 until usage.size){
+            if(UtilPhoneInfo.toNormalFormat(usage[i].mSize.toDouble()).equals("-0 KB"))
+                usage.removeAt(i)
+        }
         adapter = RunProgramsAdapter(usage, requireActivity() as AppCompatActivity, object :
             OnChangeProgramCheckedListener {
             override fun onChange(positionProgram: Int) {

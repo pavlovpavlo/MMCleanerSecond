@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.scan_util.model.JunkInfo
+import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.agento.mmcleaner.util.UStats
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
@@ -24,7 +25,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
 import java.util.*
 
-class PhoneOptimizedActivity : AppCompatActivity() {
+class PhoneOptimizedActivity : BaseActivity(R.layout.activity_phone_optimized) {
 
     lateinit var toMainBtn: AppCompatButton
     lateinit var stars: Array<ImageView>
@@ -35,7 +36,6 @@ class PhoneOptimizedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_phone_optimized)
         initViews()
     }
 

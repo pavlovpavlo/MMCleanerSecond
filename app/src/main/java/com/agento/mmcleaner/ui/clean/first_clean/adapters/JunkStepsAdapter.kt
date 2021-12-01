@@ -69,10 +69,10 @@ class JunkStepsAdapter(private var mList: List<JunkGroup>,
             }
         }
         holder.groupName.text = when(groupData.mType){
-            JunkGroup.GROUP_APK -> "APK files"
-            JunkGroup.GROUP_TEMPORARY_FILES -> "Temporary files"
-            JunkGroup.GROUP_ADVERTISING -> "Advertising rubbish"
-            JunkGroup.GROUP_CACHE -> "Application cache"
+            JunkGroup.GROUP_APK -> holder.itemView.context.getString(R.string.apk_files)
+            JunkGroup.GROUP_TEMPORARY_FILES -> holder.itemView.context.getString(R.string.temporary_files)
+            JunkGroup.GROUP_ADVERTISING -> holder.itemView.context.getString(R.string.advertising_rub)
+            JunkGroup.GROUP_CACHE -> holder.itemView.context.getString(R.string.app_cache)
             else -> ""
         }
 

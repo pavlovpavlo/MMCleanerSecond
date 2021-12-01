@@ -98,7 +98,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/first_clean_tab"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="110dp"
                     android:layout_weight="1"
                     android:paddingTop="22.5dp"
                     android:paddingBottom="25dp"
@@ -139,7 +139,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/second_clean_tab"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="110dp"
                     android:layout_weight="1"
                     android:paddingTop="22.5dp"
                     android:paddingBottom="25dp"
@@ -183,7 +183,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/third_clean_tab"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="110dp"
                     android:layout_weight="1"
                     android:paddingTop="22.5dp"
                     android:paddingBottom="25dp"

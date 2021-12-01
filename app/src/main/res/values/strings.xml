@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MM Cleaner</string>
     <string name="privacy_policy">Privacy policy</string>
@@ -77,4 +78,15 @@
     <string name="your_phone_has_been_optimized">Your phone has been optimized!</string>
     <string name="free_up_memory_and_speed_up">Free up memory and speed up your phone!</string>
     <string name="click_again_to_exit">Click again to exit</string>
+    <string name="settings">Settings</string>
+    <string name="languages">Languages</string>
+    <string name="english">English</string>
+    <string name="change_language">Change language</string>
+    <string name="apk_files">APK files</string>
+    <string name="temporary_files">Temporary files</string>
+    <string name="advertising_rub">Advertising rubbish</string>
+    <string name="app_cache">Application cache</string>
+    <string name="employed">% employed</string>
+    <string name="chose_all">Choose all</string>
+    <string name="count_app">\" applications\"</string>
 </resources>

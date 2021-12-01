@@ -1,6 +1,8 @@
 package com.agento.mmcleaner.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -15,6 +17,7 @@ import com.agento.mmcleaner.ui.clean.second_clean.SecondOptimizationEndActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdOptimizationEndActivity
 import com.agento.mmcleaner.ui.main.FirstMainActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
+import com.agento.mmcleaner.util.LocaleHelper
 import com.agento.mmcleaner.util.SingletonClassApp
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.google.android.gms.ads.*
@@ -29,12 +32,40 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
     var isCheckOpen = false
     private lateinit var listenerUsageAccess: OnPermissionUsageListener
 
+    override fun attachBaseContext(newBase: Context?) {
+        Log.d("ACTIVITY_LANGUAGE", LocaleHelper.getLanguage(newBase))
+        super.attachBaseContext(LocaleHelper.onAttach(newBase))
+    }
+
     public interface OnPermissionUsageListener {
         fun onPermissionAction()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    open fun getLang(): String? {
+        return LocaleHelper.getLanguage(applicationContext)
+    }
+
+    open fun reselectLanguage(lang: String) {
+        setLocale(lang)
+        finish()
+        startActivity(intent)
+        overridePendingTransition(0, 0)
+    }
+
+    open fun setLocale(lang: String?) {
+        LocaleHelper.setLocale(applicationContext, lang)
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        resources.updateConfiguration(
+            config,
+            resources.displayMetrics
+        )
     }
 
     override fun onRestart() {
@@ -77,79 +108,105 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
         if (!SingletonClassApp.getInstance().ads) {
 
             MobileAds.initialize(
-                    this
+                this
             ) { initializationStatus: InitializationStatus? -> }
 
             val adRequest = AdRequest.Builder().build()
             //new AdRequest.Builder().setTestDeviceIds(Arrays.asList("FA81CB082100B884FF4842AB874D0938"));
             InterstitialAd.load(
-                    this,
-                    "ca-app-pub-3940256099942544/1033173712",
-                    adRequest,
-                    object : InterstitialAdLoadCallback() {
-                        override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                            // The mInterstitialAd reference will be null until
-                            // an ad is loaded.
-                            mInterstitialAd = interstitialAd
-                            showAds()
-                            Log.i("TAG", "onAdLoaded")
-                        }
+                this,
+                "ca-app-pub-3940256099942544/1033173712",
+                adRequest,
+                object : InterstitialAdLoadCallback() {
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd
+                        showAds()
+                        Log.i("TAG", "onAdLoaded")
+                    }
 
-                        override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                            // Handle the error
-                            Log.i("ERROR_ADS", loadAdError.message)
+                    override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                        // Handle the error
+                        Log.i("ERROR_ADS", loadAdError.message)
 
-                            if (SingletonClassApp.getInstance().start_ads == 4) {
-                                val intent = Intent(applicationContext, FirstCleanActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
-                                startActivity(intent)
-                                finish()
-                                SingletonClassApp.getInstance().start_ads = 0;
-
-                                return
-                            }
-
-
-                            if (SingletonClassApp.getInstance().start_ads == 1) {
-                                val intent = Intent(applicationContext, FirstOptimizationEndActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
-                                startActivity(intent)
-                                SingletonClassApp.getInstance().start_ads = 0;
-                                finish()
-                                return
-                            }
-
-                            if (SingletonClassApp.getInstance().start_ads == 2) {
-                                startActivity(Intent(applicationContext, SecondOptimizationEndActivity::class.java))
-                                SingletonClassApp.getInstance().start_ads = 0;
-                                finish()
-                                return
-                            }
-
-                            if (SingletonClassApp.getInstance().start_ads == 3) {
-                                startActivity(Intent(applicationContext, ThirdOptimizationEndActivity::class.java))
-                                SingletonClassApp.getInstance().start_ads = 0;
-                                finish()
-                                return
-                            }
-
-
-                            //  if (!SingletonClassApp.getInstance().start){SingletonClassApp.getInstance().start=true
-                            if (LocalSharedUtil.isFirstMainShared(applicationContext)) {
-                                startActivity(Intent(applicationContext, SecondMainActivity::class.java))
-                                overridePendingTransition(0, 0);
-                            } else {
-                                startActivity(Intent(applicationContext, FirstMainActivity::class.java))
-                                overridePendingTransition(0, 0);
-                            }
+                        if (SingletonClassApp.getInstance().start_ads == 4) {
+                            val intent = Intent(
+                                applicationContext,
+                                FirstCleanActivity::class.java
+                            )
+                            intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                            startActivity(intent)
                             finish()
+                            SingletonClassApp.getInstance().start_ads = 0;
 
-                            //  }
-
-
-                            mInterstitialAd = null
+                            return
                         }
-                    })
+
+
+                        if (SingletonClassApp.getInstance().start_ads == 1) {
+                            val intent = Intent(
+                                applicationContext,
+                                FirstOptimizationEndActivity::class.java
+                            )
+                            intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                            startActivity(intent)
+                            SingletonClassApp.getInstance().start_ads = 0;
+                            finish()
+                            return
+                        }
+
+                        if (SingletonClassApp.getInstance().start_ads == 2) {
+                            startActivity(
+                                Intent(
+                                    applicationContext,
+                                    SecondOptimizationEndActivity::class.java
+                                )
+                            )
+                            SingletonClassApp.getInstance().start_ads = 0;
+                            finish()
+                            return
+                        }
+
+                        if (SingletonClassApp.getInstance().start_ads == 3) {
+                            startActivity(
+                                Intent(
+                                    applicationContext,
+                                    ThirdOptimizationEndActivity::class.java
+                                )
+                            )
+                            SingletonClassApp.getInstance().start_ads = 0;
+                            finish()
+                            return
+                        }
+
+
+                        //  if (!SingletonClassApp.getInstance().start){SingletonClassApp.getInstance().start=true
+                        if (LocalSharedUtil.isFirstMainShared(applicationContext)) {
+                            startActivity(
+                                Intent(
+                                    applicationContext,
+                                    SecondMainActivity::class.java
+                                )
+                            )
+                            overridePendingTransition(0, 0);
+                        } else {
+                            startActivity(
+                                Intent(
+                                    applicationContext,
+                                    FirstMainActivity::class.java
+                                )
+                            )
+                            overridePendingTransition(0, 0);
+                        }
+                        finish()
+
+                        //  }
+
+
+                        mInterstitialAd = null
+                    }
+                })
         } else {
 //            if (!start){start=true
 //                if (LocalSharedUtil.isFirstMainShared(applicationContext)){
@@ -178,12 +235,15 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                         finish()
                         SingletonClassApp.getInstance().start_ads = 0;
 
-                       // return
+                        // return
                     }
 
 
                     if (SingletonClassApp.getInstance().start_ads == 1) {
-                        val intent = Intent(applicationContext, FirstOptimizationEndActivity::class.java)
+                        val intent = Intent(
+                            applicationContext,
+                            FirstOptimizationEndActivity::class.java
+                        )
                         intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
                         startActivity(intent)
                         SingletonClassApp.getInstance().start_ads = 0;
@@ -192,14 +252,24 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                     }
 
                     if (SingletonClassApp.getInstance().start_ads == 2) {
-                        startActivity(Intent(applicationContext, SecondOptimizationEndActivity::class.java))
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                SecondOptimizationEndActivity::class.java
+                            )
+                        )
                         SingletonClassApp.getInstance().start_ads = 0;
                         finish()
                         // return
                     }
 
                     if (SingletonClassApp.getInstance().start_ads == 3) {
-                        startActivity(Intent(applicationContext, ThirdOptimizationEndActivity::class.java))
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                ThirdOptimizationEndActivity::class.java
+                            )
+                        )
                         SingletonClassApp.getInstance().start_ads = 0;
                         finish()
                         //  return
@@ -209,7 +279,12 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                     if (!SingletonClassApp.getInstance().start) {
                         SingletonClassApp.getInstance().start = true
                         if (LocalSharedUtil.isFirstMainShared(applicationContext)) {
-                            startActivity(Intent(applicationContext, SecondMainActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    applicationContext,
+                                    SecondMainActivity::class.java
+                                )
+                            )
                             overridePendingTransition(0, 0);
                         } else {
                             startActivity(Intent(applicationContext, FirstMainActivity::class.java))
@@ -244,7 +319,10 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                     }
 
                     if (SingletonClassApp.getInstance().start_ads == 1) {
-                        val intent = Intent(applicationContext, FirstOptimizationEndActivity::class.java)
+                        val intent = Intent(
+                            applicationContext,
+                            FirstOptimizationEndActivity::class.java
+                        )
                         intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
                         startActivity(intent)
                         SingletonClassApp.getInstance().start_ads = 0;
@@ -253,7 +331,12 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                     }
 
                     if (SingletonClassApp.getInstance().start_ads == 2) {
-                        startActivity(Intent(applicationContext, SecondOptimizationEndActivity::class.java))
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                SecondOptimizationEndActivity::class.java
+                            )
+                        )
                         SingletonClassApp.getInstance().start_ads = 0;
                         finish()
 
@@ -262,7 +345,12 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
 
 
                     if (SingletonClassApp.getInstance().start_ads == 3) {
-                        startActivity(Intent(applicationContext, ThirdOptimizationEndActivity::class.java))
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                ThirdOptimizationEndActivity::class.java
+                            )
+                        )
                         SingletonClassApp.getInstance().start_ads = 0;
                         finish()
 
@@ -271,7 +359,12 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                     if (!start) {
                         start = true
                         if (LocalSharedUtil.isFirstMainShared(applicationContext)) {
-                            startActivity(Intent(applicationContext, SecondMainActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    applicationContext,
+                                    SecondMainActivity::class.java
+                                )
+                            )
                             overridePendingTransition(0, 0);
                         } else {
                             startActivity(Intent(applicationContext, FirstMainActivity::class.java))

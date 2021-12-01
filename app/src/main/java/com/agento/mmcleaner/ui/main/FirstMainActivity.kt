@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstScanActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
@@ -15,7 +16,7 @@ import com.agento.mmcleaner.ui.setting.SettingActivity
 import com.agento.mmcleaner.util.UtilPermissions
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 
-class FirstMainActivity : AppCompatActivity(R.layout.activity_first_main) {
+class FirstMainActivity : BaseActivity(R.layout.activity_first_main) {
 
     lateinit var loaderAnimation: Animation
 

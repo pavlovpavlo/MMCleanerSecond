@@ -11,11 +11,12 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import cn.septenary.ui.widget.GradientProgressBar
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.ui.BaseFragment
 import com.agento.mmcleaner.util.Util
 import com.agento.mmcleaner.util.UtilPhoneInfo
 
 
-class SecondScanFragment : Fragment(R.layout.fragment_second_scan) {
+class SecondScanFragment : BaseFragment(R.layout.fragment_second_scan) {
 
     lateinit var thisView: View
     lateinit var procText: TextView
@@ -86,7 +87,7 @@ class SecondScanFragment : Fragment(R.layout.fragment_second_scan) {
         val animator = ValueAnimator.ofInt(0, endValue)
         animator.duration = 4000
         animator.addUpdateListener { animation ->
-            procText.text = "${animation.animatedValue.toString()}% employed" }
+            procText.text = "${animation.animatedValue.toString()}" + getString(R.string.employed)}
         animator.addListener(object: Animator.AnimatorListener{
             override fun onAnimationStart(p0: Animator?) {
             }
