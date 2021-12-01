@@ -69,11 +69,11 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
         notificationSwitch.setOnClickListener {
             switchCompat.isChecked = !switchCompat.isChecked
             if (switchCompat.isChecked) {
-                //TODO start service
+                MyApplication.get().startNotificationService()
                 LocalSharedUtil.setNotificationOn(true, this)
             } else {
-                //TODO stop service
                 hideNotification()
+                MyApplication.get().stopNotificationService()
                 LocalSharedUtil.setNotificationOn(false, this)
             }
         }

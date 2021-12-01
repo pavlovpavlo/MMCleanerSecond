@@ -18,20 +18,18 @@ class DailySchedule(val context: Context) {
     companion object {
         private const val DAILY_NOTIFICATION_REQUEST_CODE = 81585
 
-        //TODO set DAILY_INTERVAL_MILLIS
-//        private const val DAILY_INTERVAL_MILLIS = 48 * 3_600_000L
-        private const val DAILY_TEST_INTERVAL = 10 * 60_000L
+        private const val ONE_DAY_DELAY_HOURS = 24
+        private const val TWO_DAYS_DELAY_HOURS = 48
+        private const val DAILY_INTERVAL_MILLIS = 48 * 3_600_000L
     }
 
     private val notifyAt: Calendar
         get() = Calendar.getInstance().apply {
-            if (LocalSharedUtil.getBooleanParameter(IS_FIRST_OPEN, context)) {
-                add(Calendar.MINUTE, 5)
-//                add(Calendar.MILLISECOND, DAILY_TEST_INTERVAL.toInt())
-                LocalSharedUtil.setParameter(false, IS_FIRST_OPEN, context)
-            }
-            else
-                add(Calendar.MINUTE, 10)
+            add(
+                Calendar.DAY_OF_MONTH,
+                if (LocalSharedUtil.getBooleanParameter(IS_FIRST_OPEN, context)) ONE_DAY_DELAY_HOURS
+                else TWO_DAYS_DELAY_HOURS
+            )
         }
 
     private val Context.alarmManager: AlarmManager
@@ -56,7 +54,7 @@ class DailySchedule(val context: Context) {
         context.alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
             notifyAt.timeInMillis,
-            DAILY_TEST_INTERVAL,
+            DAILY_INTERVAL_MILLIS,
             pendingIntent
         )
     }

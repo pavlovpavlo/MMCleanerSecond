@@ -91,7 +91,9 @@ public class MyApplication extends Application
             new AppInstallReferrer(this);
         }
 
-        NotificationService.Companion.start(this);
+        if (LocalSharedUtil.isNotificationOn(this)) {
+            startNotificationService();
+        }
 
         MobileAds.initialize(
                 this,
@@ -106,6 +108,14 @@ public class MyApplication extends Application
         appOpenAdManager = new AppOpenAdManager();
 
         LocalSharedUtil.setParameter(false, LocalSharedUtil.IS_FIRST_OPEN, this);
+    }
+
+    public void startNotificationService() {
+        NotificationService.Companion.start(this);
+    }
+
+    public void stopNotificationService() {
+        NotificationService.Companion.release(this);
     }
 
     /**

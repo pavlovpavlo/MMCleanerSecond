@@ -82,10 +82,6 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
         val progressView = findViewById<ProgressBar>(R.id.progress)
         val privacyPolicy = findViewById<TextView>(R.id.privacy_policy)
 
-        if (LocalSharedUtil.isNotificationOn(this)) {
-            //TODO move to MY APP and enable / disable notifications
-        }
-
         privacyPolicy.setOnClickListener {
             startActivity(Intent(applicationContext, PrivacyPolicyActivity::class.java))
         }
