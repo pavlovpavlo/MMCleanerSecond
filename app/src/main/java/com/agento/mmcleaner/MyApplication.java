@@ -336,7 +336,16 @@ public class MyApplication extends Application
 
             appOpenAd.setFullScreenContentCallback(
                     new FullScreenContentCallback() {
-                        /** Called when full screen content is dismissed. */
+
+                        @Override
+                        public void onAdImpression() {
+                            super.onAdImpression();
+                            FirebaseLogger.INSTANCE.log(FirebaseLogger.EventType.ADS_APP_OPEN_CLICK_EVENT_1);
+                        }
+
+                        /**
+                         * Called when full screen content is dismissed.
+                         */
                         @Override
                         public void onAdDismissedFullScreenContent() {
                             // Set the reference to null so isAdAvailable() returns false.

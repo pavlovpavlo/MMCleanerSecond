@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstOptimizationEndActivity
 import com.agento.mmcleaner.ui.clean.second_clean.SecondOptimizationEndActivity
@@ -392,6 +393,11 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
 
                     mInterstitialAd = null
                     Log.d("TAG", "The ad was shown.")
+                }
+
+                override fun onAdImpression() {
+                    super.onAdImpression()
+                    FirebaseLogger.log(FirebaseLogger.EventType.ADS_INTERSTITIAL_CLICK_EVENT_2)
                 }
             })
         } else {

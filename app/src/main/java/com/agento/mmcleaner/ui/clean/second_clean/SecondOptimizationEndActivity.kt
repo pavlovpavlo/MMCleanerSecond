@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
@@ -113,6 +114,10 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
 
             override fun onAdClosed() {
                 hideLoader()
+            }
+            override fun onAdImpression() {
+                super.onAdImpression()
+                FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
 //            override fun onAdFailedToLoad(var1: Int) {

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.util.MemStat
 import com.agento.mmcleaner.util.Util
 import com.agento.mmcleaner.util.UtilPermissions
@@ -100,6 +101,10 @@ class FirstScanEndFragment : Fragment(R.layout.fragment_first_scan_end) {
             }
             override fun onAdClosed() {
                 hideLoader()
+            }
+            override fun onAdImpression() {
+                super.onAdImpression()
+                FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
 //            override fun onAdFailedToLoad(var1: Int) {

@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.google.android.gms.ads.AdListener
@@ -114,6 +115,11 @@ class PhoneOptimizedActivity : BaseActivity(R.layout.activity_phone_optimized) {
 
             override fun onAdClosed() {
                 hideLoader()
+            }
+
+            override fun onAdImpression() {
+                super.onAdImpression()
+                FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
 //            override fun onAdFailedToLoad(var1: Int) {
