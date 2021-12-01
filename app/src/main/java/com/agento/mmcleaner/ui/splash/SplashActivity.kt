@@ -58,6 +58,8 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
     }
 
     private fun initViews() {
+     //   SingletonClassApp.getInstance().block=true;
+
         val newString: String?
         newString =intent.extras?.getString("notif")
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
@@ -101,20 +103,20 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
 
                 // If the application is not an instance of MyApplication, log an error message and
                 // start the MainActivity without showing the app open ad.
-                /*if (application !is MyApplication) {
+                if (application !is MyApplication) {
                     Log.e("LOG_TAG", "Failed to cast application to MyApplication.")
                     startNextActivity()
                     return
-                }*/
-                startNextActivity()
+                }
+
 
                 // Show the app open ad.
 
                 // Show the app open ad.
-                /*(application as MyApplication)
+                (application as MyApplication)
                         .showAdIfAvailable(
                                 this@SplashActivity
-                        ) { startNextActivity() }*/
+                        ) { startNextActivity() }
 
 
             }
