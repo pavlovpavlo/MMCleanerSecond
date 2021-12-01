@@ -115,8 +115,8 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
             override fun onAdClosed() {
                 hideLoader()
             }
-            override fun onAdImpression() {
-                super.onAdImpression()
+            override fun onAdClicked() {
+                super.onAdClicked()
                 FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 

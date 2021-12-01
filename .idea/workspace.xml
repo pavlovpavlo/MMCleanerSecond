@@ -13,17 +13,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4609d22-54fe-44bc-95b1-c104583662fe" name="Default Changelist" comment="todo fixes">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/BaseActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstOptimizationEndActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstOptimizationEndActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstScanEndFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstScanEndFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationEndActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationEndActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationEndActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationEndActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/AllCompleteActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/AllCompleteActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneNoOptimizedActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneNoOptimizedActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneOptimizedActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneOptimizedActivity.kt" afterDir="false" />
+    <list default="true" id="e4609d22-54fe-44bc-95b1-c104583662fe" name="Default Changelist" comment="add all events">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638397120946</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add all events">
+      <created>1638397434938</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1638397434938</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,7 +374,8 @@
     <MESSAGE value="merge" />
     <MESSAGE value="fix settings merge" />
     <MESSAGE value="todo fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="todo fixes" />
+    <MESSAGE value="add all events" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all events" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -429,12 +437,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt</url>
-          <line>124</line>
+          <line>125</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt</url>
-          <line>125</line>
+          <line>126</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">

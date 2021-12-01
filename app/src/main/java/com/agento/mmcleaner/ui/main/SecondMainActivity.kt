@@ -184,8 +184,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 hideLoader()
             }
 
-            override fun onAdImpression() {
-                super.onAdImpression()
+            override fun onAdClicked() {
+                super.onAdClicked()
                 FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 

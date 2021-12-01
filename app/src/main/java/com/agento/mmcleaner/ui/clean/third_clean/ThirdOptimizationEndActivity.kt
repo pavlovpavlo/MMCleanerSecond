@@ -142,8 +142,8 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
                 hideLoader()
             }
 
-            override fun onAdImpression() {
-                super.onAdImpression()
+            override fun onAdClicked() {
+                super.onAdClicked()
                 FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
