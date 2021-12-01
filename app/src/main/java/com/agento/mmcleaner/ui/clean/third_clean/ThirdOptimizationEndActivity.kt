@@ -96,7 +96,8 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
         }
         initAds()
         LocalSharedUtil.setParameter(SharedData(Date().time.toString()), LocalSharedUtil.SHARED_THIRD, this)
-        UtilNotif.showScheduleNotification(this)
+        if(LocalSharedUtil.isNotificationOn(this))
+            UtilNotif.showScheduleNotification(this)
     }
 
     private fun initAds(){

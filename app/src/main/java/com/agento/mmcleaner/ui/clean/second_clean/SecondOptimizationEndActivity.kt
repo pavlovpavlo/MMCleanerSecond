@@ -85,7 +85,8 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
             LocalSharedUtil.SHARED_SECOND,
             this
         )
-        UtilNotif.showScheduleNotification(this)
+        if(LocalSharedUtil.isNotificationOn(this))
+            UtilNotif.showScheduleNotification(this)
     }
 
     private fun initAds() {

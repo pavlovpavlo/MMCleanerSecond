@@ -78,4 +78,14 @@
     <string name="your_phone_has_been_optimized">휴대전화가 최적화되었습니다!</string>
     <string name="free_up_memory_and_speed_up">메모리를 확보하고 휴대전화 속도를 높이세요!</string>
     <string name="click_again_to_exit">종료하려면 다시 클릭하십시오.</string>
+    <string name="settings">설정</string>
+    <string name="languages">언어</string>
+    <string name="change_language">언어 변경</string>
+    <string name="apk_files">APK 파일</string>
+    <string name="temporary_files">임시 파일</string>
+    <string name="advertising_rub">쓰레기 광고</string>
+    <string name="app_cache">애플리케이션 캐시</string>
+    <string name="employed">고용\">% 고용</string>
+    <string name="chose_all">모두 선택</string>
+    <string name="count_app">애플리케이션</string>
 </resources>

@@ -19,6 +19,7 @@ import com.agento.mmcleaner.util.SingletonClassApp
 import com.agento.mmcleaner.util.UStats
 import com.agento.mmcleaner.util.Util
 import com.agento.mmcleaner.util.UtilNotif
+import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -46,7 +47,8 @@ class ThirdOptimizationFragment : BaseFragment(R.layout.fragment_third_optimizat
     }
 
     private fun initViews() {
-        UtilNotif.showScheduleNotification(requireContext())
+        if(LocalSharedUtil.isNotificationOn(requireContext()))
+            UtilNotif.showScheduleNotification(requireContext())
         adsLoader = thisView.findViewById(R.id.ads_loader)
         textHibernation = thisView.findViewById(R.id.text_hibernation)
         //usage = UStats.getUsageStatsList(requireContext())

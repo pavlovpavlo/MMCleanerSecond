@@ -261,7 +261,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 }
             }
         }
-        UtilNotif.showScheduleNotification(this)
+        if(LocalSharedUtil.isNotificationOn(this))
+            UtilNotif.showScheduleNotification(this)
         if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND)) {
             activeTabs(secondTab)
             countOptimized++
@@ -291,7 +292,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 }
             }
         }
-        UtilNotif.showScheduleNotification(this)
+        if(LocalSharedUtil.isNotificationOn(this))
+            UtilNotif.showScheduleNotification(this)
 
         if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_THIRD)) {
             activeTabs(thirdTab)

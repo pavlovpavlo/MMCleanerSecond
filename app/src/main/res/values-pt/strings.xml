@@ -78,4 +78,14 @@
     <string name="your_phone_has_been_optimized">Seu telefone foi otimizado!</string>
     <string name="free_up_memory_and_speed_up">Libere memória e acelere seu telefone!</string>
     <string name="click_again_to_exit">Clique novamente para sair</string>
+    <string name="settings">Configurações</string>
+    <string name="languages">Idiomas</string>
+    <string name="apk_files">Arquivos APK</string>
+    <string name="change_language">Alterar idioma</string>
+    <string name="temporary_files">Arquivos temporários</string>
+    <string name="advertising_rub">Publicidade lixo</string>
+    <string name="app_cache">Cache do aplicativo</string>
+    <string name="employed">% empregado</string>
+    <string name="chose_all">Escolha tudo</string>
+    <string name="count_app">aplicativos</string>
 </resources>

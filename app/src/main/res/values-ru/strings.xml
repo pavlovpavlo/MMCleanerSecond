@@ -78,4 +78,14 @@
     <string name="free_up_memory_and_speed_up">Освободите память и ускорьте работу телефона!</string>
     <string name="click_again_to_exit">Щелкните еще раз, чтобы выйти</string>
     <string name="memory">Память</string>
+    <string name="settings">Настройки</string>
+    <string name="languages">Языки</string>
+    <string name="change_language">Сменить язык</string>
+    <string name="apk_files">APK-файлы</string>
+    <string name="temporary_files">Временные файлы</string>
+    <string name="advertising_rub">Рекламный мусор</string>
+    <string name="app_cache">Кеш приложения</string>
+    <string name="employed">% занятых</string>
+    <string name="chose_all">Выбрать все</string>
+    <string name="count_app">приложения</string>
 </resources>

@@ -13,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
@@ -21,9 +22,11 @@ import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.PrivacyPolicyActivity
 import com.agento.mmcleaner.ui.optimized.PhoneOptimizedActivity
 import com.agento.mmcleaner.ui.splash.SplashActivity
+import com.agento.mmcleaner.util.LocaleHelper
 import com.agento.mmcleaner.util.UtilNotif
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.widget.SimpleWidgetProvider
+import java.util.*
 
 
 class SettingActivity : BaseActivity(R.layout.activity_setting) {
@@ -38,6 +41,7 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
     lateinit var rate: LinearLayout
     lateinit var lang: LinearLayout
     lateinit var backBtn: ImageView
+    lateinit var langText: TextView
     lateinit var appWidgetManager: AppWidgetManager
     lateinit var appWidgetHost: AppWidgetHost
     var REQUEST_PICK = 12004
@@ -57,6 +61,16 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
         policy = findViewById(R.id.privacy_policy)
         rate = findViewById(R.id.rate_us)
         lang = findViewById(R.id.languages)
+        langText = findViewById(R.id.lang)
+
+        when (LocaleHelper.getLanguage(this).toLowerCase(Locale.getDefault())){
+            "ru"-> langText.setText("Русский")
+            "es"-> langText.setText("Español")
+            "in"-> langText.setText("bahasa Indonesia")
+            "ko"-> langText.setText("한국인")
+            "pt"-> langText.setText("Português")
+            else ->langText.setText("English")
+        }
 
         backBtn.setOnClickListener {
             finish()
@@ -65,6 +79,8 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
         lang.setOnClickListener {
             startActivity(Intent(this, SelectLanguageActivity::class.java))
         }
+
+
 
         notificationSwitch.setOnClickListener {
             switchCompat.isChecked = !switchCompat.isChecked
@@ -121,6 +137,11 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
             else
                 resources.getDrawable(R.drawable.custom_track)
         }
+        switchCompat.isChecked = LocalSharedUtil.isNotificationOn(this)
+        switchBg.background = if (switchCompat.isChecked)
+            resources.getDrawable(R.drawable.custom_track_active)
+        else
+            resources.getDrawable(R.drawable.custom_track)
     }
 
     fun hideNotification() {

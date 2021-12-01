@@ -9,6 +9,7 @@ import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.agento.mmcleaner.ui.optimized.PhoneNoOptimizedActivity
 import com.agento.mmcleaner.util.UtilNotif
+import com.agento.mmcleaner.util.shared.LocalSharedUtil
 
 class ThirdCleanActivity : BaseActivity(R.layout.activity_third_clean) {
 
@@ -30,6 +31,7 @@ class ThirdCleanActivity : BaseActivity(R.layout.activity_third_clean) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        UtilNotif.showScheduleNotification(this)
+        if(LocalSharedUtil.isNotificationOn(this))
+            UtilNotif.showScheduleNotification(this)
     }
 }

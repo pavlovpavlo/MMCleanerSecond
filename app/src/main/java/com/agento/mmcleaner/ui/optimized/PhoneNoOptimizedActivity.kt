@@ -128,7 +128,8 @@ class PhoneNoOptimizedActivity : BaseActivity(R.layout.activity_phone_no_optimiz
     }
 
     private fun checkTabs(){
-        UtilNotif.showScheduleNotification(this)
+        if(LocalSharedUtil.isNotificationOn(this))
+            UtilNotif.showScheduleNotification(this)
         if(LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_FIRST)){
             activeTabs(firstTab)
         }else{

@@ -379,7 +379,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
     var mStopHandler = false
 
     private fun deleteAllItems() {
-        titleText.text = "Cleaning ..."
+        titleText.text = getString(R.string.cleaning)
         MainScope().launch(context = Dispatchers.Main) {
             if (!UtilPermissions.isPermissionDenied(
                     requireActivity() as AppCompatActivity,

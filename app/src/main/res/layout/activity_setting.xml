@@ -124,6 +124,7 @@
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/switch_control"
                         android:layout_width="36dp"
+                        android:checked="true"
                         android:layout_margin="2dp"
                         android:clickable="false"
                         android:layout_height="wrap_content"
@@ -182,6 +183,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/color_333A44"/>
                 <TextView
+                    android:id="@+id/lang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/english"

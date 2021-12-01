@@ -78,4 +78,14 @@
     <string name="your_phone_has_been_optimized">Ponsel Anda telah dioptimalkan!</string>
     <string name="free_up_memory_and_speed_up">Kosongkan memori dan percepat ponsel Anda!</string>
     <string name="click_again_to_exit">Klik lagi untuk keluar</string>
+    <string name="settings">Setelan</string>
+    <string name="languages">Bahasa</string>
+    <string name="change_language">Ubah bahasa</string>
+    <string name="apk_files">file APK</string>
+    <string name="temporary_files">File sementara</string>
+    <string name="advertising_rub">Sampah iklan</string>
+    <string name="app_cache">Cache aplikasi</string>
+    <string name="employed">% dipekerjakan</string>
+    <string name="chose_all">Pilih semua</string>
+    <string name="count_app">aplikasi</string>
 </resources>
