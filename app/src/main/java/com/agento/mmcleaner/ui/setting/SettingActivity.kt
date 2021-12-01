@@ -15,8 +15,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.PrivacyPolicyActivity
@@ -27,7 +27,6 @@ import com.agento.mmcleaner.util.UtilNotif
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.widget.SimpleWidgetProvider
 import java.util.*
-
 
 class SettingActivity : BaseActivity(R.layout.activity_setting) {
 
@@ -49,6 +48,8 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MyApplication.get().setCurrentScreen(19)
+
         backBtn = findViewById(R.id.back_btn)
         notificationSwitch = findViewById(R.id.notification_switch)
         switchCompat = findViewById(R.id.switch_control)
@@ -85,10 +86,11 @@ class SettingActivity : BaseActivity(R.layout.activity_setting) {
         notificationSwitch.setOnClickListener {
             switchCompat.isChecked = !switchCompat.isChecked
             if (switchCompat.isChecked) {
-                UtilNotif.showScheduleNotification(this)
+                MyApplication.get().startNotificationService()
                 LocalSharedUtil.setNotificationOn(true, this)
             } else {
                 hideNotification()
+                MyApplication.get().stopNotificationService()
                 LocalSharedUtil.setNotificationOn(false, this)
             }
         }

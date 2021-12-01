@@ -2,24 +2,20 @@ package com.agento.mmcleaner.ui.clean.second_clean
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.Settings
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.Fragment
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.agento.mmcleaner.ui.optimized.PhoneNoOptimizedActivity
 import com.agento.mmcleaner.util.UStats
-import com.agento.mmcleaner.util.UtilNotif
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.shared.SharedData
 import com.google.android.gms.ads.AdListener
@@ -48,6 +44,7 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MyApplication.get().setCurrentScreen(10)
         initViews()
     }
 
@@ -63,11 +60,15 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
                 startActivity(Intent(this, SecondMainActivity::class.java))
             } else {
                 if (UStats.getUsageStatsList(this, false).isEmpty()) {
-                    checkPermissionUsage(object: OnPermissionUsageListener{
+                    checkPermissionUsage(object : OnPermissionUsageListener {
                         override fun onPermissionAction() {
-                            startActivity(Intent(this@SecondOptimizationEndActivity, ThirdCleanActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@SecondOptimizationEndActivity,
+                                    ThirdCleanActivity::class.java
+                                )
+                            )
                         }
-
                     })
                 } else {
                     startActivity(Intent(this, ThirdCleanActivity::class.java))
@@ -85,8 +86,11 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
             LocalSharedUtil.SHARED_SECOND,
             this
         )
+<<<<<<< HEAD
         if(LocalSharedUtil.isNotificationOn(this))
             UtilNotif.showScheduleNotification(this)
+=======
+>>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
     }
 
     private fun initAds() {
@@ -115,6 +119,10 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
 
             override fun onAdClosed() {
                 hideLoader()
+            }
+            override fun onAdClicked() {
+                super.onAdClicked()
+                FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
 //            override fun onAdFailedToLoad(var1: Int) {

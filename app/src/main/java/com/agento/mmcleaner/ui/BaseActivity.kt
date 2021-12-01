@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstOptimizationEndActivity
 import com.agento.mmcleaner.ui.clean.second_clean.SecondOptimizationEndActivity
@@ -107,9 +108,7 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
 
         if (!SingletonClassApp.getInstance().ads) {
 
-            MobileAds.initialize(
-                this
-            ) { initializationStatus: InitializationStatus? -> }
+            MobileAds.initialize(this) { initializationStatus: InitializationStatus? -> }
 
             val adRequest = AdRequest.Builder().build()
             //new AdRequest.Builder().setTestDeviceIds(Arrays.asList("FA81CB082100B884FF4842AB874D0938"));
@@ -234,7 +233,6 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                         startActivity(intent)
                         finish()
                         SingletonClassApp.getInstance().start_ads = 0;
-
                         // return
                     }
 
@@ -244,6 +242,7 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
                             applicationContext,
                             FirstOptimizationEndActivity::class.java
                         )
+
                         intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
                         startActivity(intent)
                         SingletonClassApp.getInstance().start_ads = 0;
@@ -394,6 +393,11 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
 
                     mInterstitialAd = null
                     Log.d("TAG", "The ad was shown.")
+                }
+
+                override fun onAdImpression() {
+                    super.onAdImpression()
+                    FirebaseLogger.log(FirebaseLogger.EventType.ADS_INTERSTITIAL_CLICK_EVENT_2)
                 }
             })
         } else {

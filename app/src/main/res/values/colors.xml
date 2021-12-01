@@ -9,4 +9,7 @@
     <color name="color_2F2C4C">#2F2C4C</color>
     <color name="color_8E9AAB">#8E9AAB</color>
     <color name="color_28BB63">#28BB63</color>
+    <color name="light_grey">#EBEBEB</color>
+    <color name="dark_grey">#8E9AAB</color>
+    <color name="black_transparent">#33000000</color>
 </resources>

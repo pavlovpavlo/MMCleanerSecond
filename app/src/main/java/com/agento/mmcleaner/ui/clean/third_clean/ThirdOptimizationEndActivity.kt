@@ -9,15 +9,14 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.Fragment
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.scan_util.model.JunkInfo
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.agento.mmcleaner.util.UStats
-import com.agento.mmcleaner.util.UtilNotif
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.shared.SharedData
 import com.google.android.gms.ads.AdListener
@@ -45,33 +44,44 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MyApplication.get().setCurrentScreen(14)
         initViews()
     }
 
-    private fun initViews(){
+    private fun initViews() {
         adsLoader = findViewById(R.id.ads_loader)
         stars = arrayOf(
-                findViewById(R.id.star1),
-                findViewById(R.id.star2),
-                findViewById(R.id.star3),
-                findViewById(R.id.star4),
-                findViewById(R.id.star5)
+            findViewById(R.id.star1),
+            findViewById(R.id.star2),
+            findViewById(R.id.star3),
+            findViewById(R.id.star4),
+            findViewById(R.id.star5)
         )
         toMainBtn = findViewById(R.id.to_main)
         countApp = findViewById(R.id.count_app)
         usage = UStats.getUsageStatsList(this, true)
         countApp.text = usage.size.toString()
 
-        for(i in stars.indices){
+        for (i in stars.indices) {
             stars[i].setOnClickListener {
-                setStars(i+1)
-                if (i == 4){
+                setStars(i + 1)
+                if (i == 4) {
                     try {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${packageName}")))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=${packageName}")
+                            )
+                        )
                     } catch (e: ActivityNotFoundException) {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=${packageName}")))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=${packageName}")
+                            )
+                        )
                     }
-                }else{
+                } else {
                     val selectorIntent = Intent(Intent.ACTION_SENDTO)
                     selectorIntent.data = Uri.parse("mailto:")
 
@@ -95,12 +105,20 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
             startActivity(Intent(this, SecondMainActivity::class.java))
         }
         initAds()
+<<<<<<< HEAD
         LocalSharedUtil.setParameter(SharedData(Date().time.toString()), LocalSharedUtil.SHARED_THIRD, this)
         if(LocalSharedUtil.isNotificationOn(this))
             UtilNotif.showScheduleNotification(this)
+=======
+        LocalSharedUtil.setParameter(
+            SharedData(Date().time.toString()),
+            LocalSharedUtil.SHARED_THIRD,
+            this
+        )
+>>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
     }
 
-    private fun initAds(){
+    private fun initAds() {
         mAdView = findViewById(R.id.adView)
 
         initializeBannerAd("ca-app-pub-3940256099942544~6300978111")
@@ -111,22 +129,28 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
     private fun initializeBannerAd(appUnitId: String) {
 
         MobileAds.initialize(
-          this
+            this
         ) { initializationStatus: InitializationStatus? -> }
 
-      //  MobileAds.initialize(this, appUnitId)
+        //  MobileAds.initialize(this, appUnitId)
 
     }
 
     private fun loadBannerAd() {
         startAnimation()
         val adRequest = AdRequest.Builder().build()
-        val listener =  object : AdListener() {
+        val listener = object : AdListener() {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
+            }
+
+            override fun onAdClicked() {
+                super.onAdClicked()
+                FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
 //            override fun onAdFailedToLoad(var1: Int) {
@@ -136,6 +160,7 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
         mAdView.adListener = listener
         mAdView.loadAd(adRequest)
     }
+
     private fun startAnimation() {
         loaderAnimation =
             AnimationUtils.loadAnimation(this, R.anim.animation_loader)
@@ -155,19 +180,19 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
         adsLoader.animation = loaderAnimation
     }
 
-    private fun hideLoader(){
+    private fun hideLoader() {
         adsLoader.clearAnimation()
         loaderAnimation.cancel()
         loaderAnimation.reset()
         (adsLoader.parent as View).visibility = View.GONE
     }
 
-    private fun setStars(countSelectStars: Int){
-        for(i in 0 until countSelectStars){
+    private fun setStars(countSelectStars: Int) {
+        for (i in 0 until countSelectStars) {
             stars[i].setImageResource(R.drawable.ic_star_active)
         }
 
-        for(i in (countSelectStars) until stars.size){
+        for (i in (countSelectStars) until stars.size) {
             stars[i].setImageResource(R.drawable.ic_star_noactive)
         }
     }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notification_charging_layout"
+    android:layout_width="match_parent"
+    android:layout_height="290dp"
+    android:background="@drawable/shape_notif_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp">
+
+    <TextView
+        android:id="@+id/notification_charging_percent_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ic_notification_battery_charging"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:gravity="center"
+        android:lines="1"
+        android:paddingStart="0dp"
+        android:paddingEnd="12dp"
+        android:text="@string/notification_percent_placeholder"
+        android:textColor="@color/primary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notification_charging_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@string/notification_charging_placeholder"
+        android:textColor="@color/color_2F2C4C"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notification_charging_programs_slow_down_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@string/notification_programs_slow_down_text_placeholder"
+        android:textColor="@color/color_2F2C4C"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/notification_charging_cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_notif_button_cancel"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:text="@string/notification_cancel"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/notification_charging_optimize_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_notif_button_optimize"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:text="@string/optimize"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

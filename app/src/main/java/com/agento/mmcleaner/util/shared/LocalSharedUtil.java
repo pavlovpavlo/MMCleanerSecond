@@ -3,8 +3,6 @@ package com.agento.mmcleaner.util.shared;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.google.gson.Gson;
 
@@ -22,6 +20,9 @@ public class LocalSharedUtil {
     private static final String SHARED_Second_MAIN = "mmcleaner_main_second";
     private static final String SHARED_NOTIFICATION = "cleanerguard_push";
 
+    public static final String IS_FIRST_OPEN = "is_first_open";
+    public static final String CNV_ID_SHARED = "cnv_id";
+
     public static void setParameter(SharedData value, String key, Context context) {
         Calendar cal = Calendar.getInstance(Locale.getDefault());
         long firstTimestampInSec = cal.getTimeInMillis() / 1000;
@@ -38,11 +39,12 @@ public class LocalSharedUtil {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getInt(key, 0);
     }
+
     public static long getParameterTime(String key, Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         Calendar cal = Calendar.getInstance(Locale.getDefault());
         long firstTimestampInSec = cal.getTimeInMillis() / 1000;
-        return preferences.getLong(key, firstTimestampInSec+172800);
+        return preferences.getLong(key, firstTimestampInSec + 172800);
     }
 
     public static void setParameterInt(int value, String key, Context context) {
@@ -56,6 +58,26 @@ public class LocalSharedUtil {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         Gson gson = new Gson();
         return gson.fromJson(preferences.getString(key, ""), SharedData.class);
+    }
+
+    public static void setParameter(Boolean value, String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putBoolean(key, value).apply();
+    }
+
+    public static boolean getBooleanParameter(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(key, true);
+    }
+
+    public static void setParameter(String value, String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putString(key, value).apply();
+    }
+
+    public static String getStringParameter(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString(key, "");
     }
 
     public static void setSharedFirstMain(Context context) {
@@ -85,7 +107,7 @@ public class LocalSharedUtil {
     public static boolean isStepOptimized(Context context, String sharedKey) {
         SharedData data = LocalSharedUtil.getParameter(sharedKey, context);
 
-        if(data == null)
+        if (data == null)
             return false;
         return (Long.parseLong(data.date) + 43_200_000) > new Date().getTime();
     }

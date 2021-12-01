@@ -91,7 +91,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_bold"
-                            android:text="@string/memory"
+                            android:text="Memory"
                             android:layout_weight="1"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
@@ -117,7 +117,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_bold"
-                            android:text="@string/ram"
+                            android:text="RAM"
                             android:layout_weight="1"
                             android:textColor="@color/color_28BB63"
                             android:textSize="16sp" />
@@ -143,7 +143,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_bold"
-                            android:text="@string/battery"
+                            android:text="Battery"
                             android:layout_weight="1"
                             android:textColor="@color/white"
                             android:textSize="16sp" />

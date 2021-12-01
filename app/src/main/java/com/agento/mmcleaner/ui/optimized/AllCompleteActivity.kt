@@ -10,8 +10,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
-import com.agento.mmcleaner.ui.BaseActivity
+import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -19,7 +20,7 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
 
-class AllCompleteActivity : BaseActivity(R.layout.activity_all_complete) {
+class AllCompleteActivity : AppCompatActivity() {
     lateinit var toMainBtn: AppCompatButton
     lateinit var stars: Array<ImageView>
     lateinit var loaderAnimation: Animation
@@ -29,6 +30,8 @@ class AllCompleteActivity : BaseActivity(R.layout.activity_all_complete) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_all_complete)
+        MyApplication.get().setCurrentScreen(16)
         initViews()
     }
 
@@ -102,6 +105,10 @@ class AllCompleteActivity : BaseActivity(R.layout.activity_all_complete) {
             }
             override fun onAdClosed() {
                 hideLoader()
+            }
+            override fun onAdClicked() {
+                super.onAdClicked()
+                FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 
 //            override fun onAdFailedToLoad(var1: Int) {

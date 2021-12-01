@@ -56,7 +56,7 @@
             android:fontFamily="@font/proxima_nova_regular"
             android:gravity="center"
             android:maxLines="1"
-            android:text="@string/done"
+            android:text="Done!"
             android:textColor="@color/white"
             android:textSize="14sp" />
 

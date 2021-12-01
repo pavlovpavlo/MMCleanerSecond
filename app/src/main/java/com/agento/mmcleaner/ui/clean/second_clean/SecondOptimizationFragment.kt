@@ -1,9 +1,7 @@
 package com.agento.mmcleaner.ui.clean.second_clean
 
 import android.animation.Animator
-import android.app.usage.UsageStats
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -15,22 +13,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
-import androidx.navigation.fragment.NavHostFragment
 import cn.septenary.ui.widget.GradientProgressBar
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.scan_util.model.JunkInfo
 import com.agento.mmcleaner.ui.BaseFragment
-import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
 import com.agento.mmcleaner.util.GradientProgressBarAnimation
 import com.agento.mmcleaner.util.SingletonClassApp
-import com.agento.mmcleaner.util.UStats
-import com.agento.mmcleaner.util.Util
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 
 class SecondOptimizationFragment : BaseFragment(R.layout.fragment_second_optimization) {
@@ -52,6 +44,7 @@ class SecondOptimizationFragment : BaseFragment(R.layout.fragment_second_optimiz
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        MyApplication.get().setCurrentScreen(9)
         thisView = view
 
         initViews()
@@ -77,7 +70,7 @@ class SecondOptimizationFragment : BaseFragment(R.layout.fragment_second_optimiz
             (requireActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
 
         //val oneAppProccent:Float = 1F/usage.size.toFloat()
-        val addProccent:Float = (1F/(usage.size.toFloat()-1)) *100F
+        val addProccent: Float = (1F / (usage.size.toFloat() - 1)) * 100F
 
         appsContainer.viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
             override fun onGlobalLayout() {
@@ -91,9 +84,9 @@ class SecondOptimizationFragment : BaseFragment(R.layout.fragment_second_optimiz
                         val image: ImageView = program.findViewById<ImageView>(R.id.program_image)
 
                         val pm: PackageManager = requireActivity().packageManager
-                        val icon: Drawable =try {
+                        val icon: Drawable = try {
                             pm.getApplicationIcon(programData.mPackageName)
-                        }catch (e: Exception){
+                        } catch (e: Exception) {
                             resources.getDrawable(R.drawable.ic_document_text)
                         }
                         image.setImageDrawable(icon)
@@ -112,26 +105,26 @@ class SecondOptimizationFragment : BaseFragment(R.layout.fragment_second_optimiz
                         appsContainer.addView(program)
 
 
-                        allProgress-= Math.ceil(addProccent.toDouble()).toInt()
+                        allProgress -= Math.ceil(addProccent.toDouble()).toInt()
                         countProcess.text = "$i / ${usage.size - 1}"
-                        if(allProgress<0)
-                            allProgress=0
+                        if (allProgress < 0)
+                            allProgress = 0
                         progressText.text = allProgress.toString()
-                        if(allProgress<66){
-                            if(allProgress< 33){
+                        if (allProgress < 66) {
+                            if (allProgress < 33) {
                                 progressBar.visibility = View.GONE
                                 progressBarOrange.visibility = View.GONE
                                 progressBarGreen.visibility = View.VISIBLE
-                            }else{
+                            } else {
                                 progressBar.visibility = View.GONE
                                 progressBarGreen.visibility = View.GONE
                                 progressBarOrange.visibility = View.VISIBLE
                             }
                         }
 
-                        progressBar.setProgress(allProgress,true)
-                        progressBarOrange.setProgress(allProgress,true)
-                        progressBarGreen.setProgress(allProgress,true)
+                        progressBar.setProgress(allProgress, true)
+                        progressBarOrange.setProgress(allProgress, true)
+                        progressBarGreen.setProgress(allProgress, true)
 
                         program.animate().scaleY(3.4f).scaleX(3.4f).alpha(0.7f)
                             .translationX(-(appsContainer.width.toFloat() / 2))
@@ -183,7 +176,7 @@ class SecondOptimizationFragment : BaseFragment(R.layout.fragment_second_optimiz
     private fun optimizationEnd() {
         complete.visibility = View.VISIBLE
         startAds()
-        SingletonClassApp.getInstance().start_ads=2
+        SingletonClassApp.getInstance().start_ads = 2
 //        startActivity(Intent(requireContext(), SecondOptimizationEndActivity::class.java))
 //        requireActivity().finish()
     }

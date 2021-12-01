@@ -35,6 +35,27 @@
     <string name="follow_these_steps">Follow these steps to get your phone running faster!</string>
 
     <string name="this_function_is_already_optimized">This function is already optimized</string>
+
+    <!-- Notifications -->
+    <string name="notification_clear" translatable="false">Clear</string>
+    <string name="notification_cancel" translatable="false">Cancel</string>
+    <string name="notification_optimize" translatable="false">Optimize</string>
+    <string name="notification_percent_placeholder" translatable="false">%d%%</string>
+    <string name="notification_mb_placeholder" translatable="false">%.1fMB</string>
+
+    <!-- Battery -->
+    <string name="notification_charging_placeholder" translatable="false">Charging %d%%</string>
+    <string name="notification_programs_slow_down_text_placeholder" translatable="false">%d programs slow down the charging speed</string>
+
+    <string name="notification_residual_data_found" translatable="false">Residual data found</string>
+    <string name="notification_after_unloading_placeholder" translatable="false">after unloading, the remainder of <b>%.1fMB</b>\nwas found cleaning to get a lot of memory</string>
+    <string name="notification_ads_trash" translatable="false">Ads rubbish</string>
+    <string name="notification_apps_cache" translatable="false">Apps cache</string>
+    <string name="notification_other_trash" translatable="false">Other garbage</string>
+
+    <string name="notification_daily_title" translatable="false"><font color="#333A44">MM</font> <font color="#FE6201">CLEANER</font></string>
+    <string name="notification_daily_description" translatable="false">You haven\'t cleaned the trash in <font color="#FE6201">1 day</font></string>
+=======
     <string name="done">Done!</string>
     <string name="we_ll_let_you_know_when_your_phone_needs_cleaning">We\'ll let you know when your phone needs cleaning</string>
     <string name="battery">Battery</string>

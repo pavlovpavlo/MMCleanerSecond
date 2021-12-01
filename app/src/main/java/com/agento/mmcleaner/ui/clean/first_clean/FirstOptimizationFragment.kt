@@ -1,6 +1,5 @@
 package com.agento.mmcleaner.ui.clean.first_clean
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -13,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
-import com.agento.mmcleaner.scan_util.*
+import com.agento.mmcleaner.scan_util.OverallScanTask
+import com.agento.mmcleaner.scan_util.SysCacheScanTask
 import com.agento.mmcleaner.scan_util.callback.IScanCallback
 import com.agento.mmcleaner.scan_util.model.JunkGroup
 import com.agento.mmcleaner.scan_util.model.JunkInfo
@@ -50,6 +51,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        MyApplication.get().setCurrentScreen(5)
         thisView = view
         //allSize = requireArguments().getDouble("unncessary")
         initViews()
@@ -73,7 +75,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
         if (!UtilPermissions.isPermissionDenied(requireActivity() as AppCompatActivity, false)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 imitateList()
-            }else{
+            } else {
                 scanCacheApp()
                 scanBadFiles()
             }
@@ -96,8 +98,8 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
             checkScanning()
         }
         MainScope().launch {
-            for(i in 0..25) {
-                if(!titleText.text.equals("Done...")) {
+            for (i in 0..25) {
+                if (!titleText.text.equals("Done...")) {
                     titleText.text = getRandomString(35)
                     delay(150)
                 }
@@ -105,15 +107,15 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
         }
     }
 
-    private fun calculateUncessary(){
+    private fun calculateUncessary() {
         allSize = 0.0
-        for(process in processes){
+        for (process in processes) {
             for (info in process.mChildren) {
                 allSize += info.mSize
             }
         }
 
-        val unncessaryCount = UtilPhoneInfo.toNormalFormat(allSize,"#.#")
+        val unncessaryCount = UtilPhoneInfo.toNormalFormat(allSize, "#.#")
         unncessary.text = unncessaryCount.substring(0, unncessaryCount.indexOf(" "))
         unncessaryType.text = unncessaryCount.substring(unncessaryCount.indexOf(" ") + 1)
     }
@@ -160,15 +162,15 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
         calculateUncessary()
     }
 
-    private fun generateRandomFiles(type: String):ArrayList<JunkInfo>{
+    private fun generateRandomFiles(type: String): ArrayList<JunkInfo> {
         val randomFiles = ArrayList<JunkInfo>()
 
-        for(i in 0 until 3){
+        for (i in 0 until 3) {
             var string = ""
-            string+= getRandomString((2..3).random())
-            string+= "-"
-            string+= getRandomString((2..3).random())
-            string+= type
+            string += getRandomString((2..3).random())
+            string += "-"
+            string += getRandomString((2..3).random())
+            string += type
 
             val junkInfo = JunkInfo()
             junkInfo.name = string
@@ -183,7 +185,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
         return randomFiles
     }
 
-    fun getRandomString(length: Int) : String {
+    fun getRandomString(length: Int): String {
         val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
         return (1..length)
             .map { allowedChars.random() }
@@ -401,7 +403,8 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
                     calculateUncessary()
                     if (i != (processes.size - 1))
                         delay(1050)
-                }catch (e: Exception){}
+                } catch (e: Exception) {
+                }
 
             }
             optimizationComplete()
@@ -409,12 +412,12 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
     }
 
     private fun clearJunk() {
-        val allProcess : MutableList<JunkGroup> = mutableListOf()
+        val allProcess: MutableList<JunkGroup> = mutableListOf()
         allProcess.addAll(processes)
         val clearThread = Thread {
 
             for (i in 0 until allProcess.size) {
-                if(allProcess[i].isCheck) {
+                if (allProcess[i].isCheck) {
                     if (allProcess[i].mType == JunkGroup.GROUP_APK) {
                         val junks =
                             allProcess[i].mChildren.filter { junkInfo -> junkInfo.isCheck } as ArrayList<JunkInfo>
@@ -436,7 +439,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
     private fun optimizationComplete() {
         bg_optim.setImageResource(R.drawable.green_bg)
         startAds();
-        SingletonClassApp.getInstance().start_ads=1;
+        SingletonClassApp.getInstance().start_ads = 1;
 //        val intent = Intent(requireContext(), FirstOptimizationEndActivity::class.java)
 //        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
 //        startActivity(intent)

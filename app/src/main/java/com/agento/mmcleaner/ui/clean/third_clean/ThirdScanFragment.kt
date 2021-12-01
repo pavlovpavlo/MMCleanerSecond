@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
+import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.util.Util
 
@@ -25,11 +26,12 @@ class ThirdScanFragment : Fragment(R.layout.fragment_third_scan) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        MyApplication.get().setCurrentScreen(11)
         thisView = view
         initViews()
     }
 
-    private fun initViews(){
+    private fun initViews() {
         scanner = thisView.findViewById(R.id.scanner)
         scannerImage = thisView.findViewById(R.id.battery_image)
         scannerOrangeSmileImage = thisView.findViewById(R.id.orange_smile)
@@ -45,7 +47,7 @@ class ThirdScanFragment : Fragment(R.layout.fragment_third_scan) {
                     .translationY(-((view!!.height) / 4).toFloat())
                     .setInterpolator(AccelerateInterpolator())
                     .setDuration(3000)
-                    .setListener(object:Animator.AnimatorListener{
+                    .setListener(object : Animator.AnimatorListener {
                         override fun onAnimationStart(p0: Animator?) {
                         }
 
@@ -65,7 +67,7 @@ class ThirdScanFragment : Fragment(R.layout.fragment_third_scan) {
 
     }
 
-    private fun startNextAnimation(height: Int){
+    private fun startNextAnimation(height: Int) {
         scanner.setImageResource(R.drawable.battery_scaner_orange)
         scannerImage.setImageResource(R.drawable.battery_empty)
         scannerBorder.setImageResource(R.drawable.ic_battery_orange_border)
@@ -75,7 +77,7 @@ class ThirdScanFragment : Fragment(R.layout.fragment_third_scan) {
             .translationY((height / 12).toFloat())
             .setInterpolator(AccelerateInterpolator())
             .setDuration(3000)
-            .setListener(object:Animator.AnimatorListener{
+            .setListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(p0: Animator?) {
                 }
 
@@ -92,7 +94,7 @@ class ThirdScanFragment : Fragment(R.layout.fragment_third_scan) {
             })
     }
 
-    private fun openNextScreen(){
+    private fun openNextScreen() {
         val navBuilder = NavOptions.Builder()
         val controller = NavHostFragment.findNavController(this@ThirdScanFragment)
         val navOptions = navBuilder.setPopUpTo(R.id.fragment_third_scan_end, true).build()

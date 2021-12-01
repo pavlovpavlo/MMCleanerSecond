@@ -1,23 +1,14 @@
 package com.agento.mmcleaner.ui;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.agento.mmcleaner.util.LocaleHelper;
-
 
 public class BaseFragment extends Fragment {
     private View view;
@@ -34,7 +25,6 @@ public class BaseFragment extends Fragment {
         super(fragmentSecondOptimization);
     }
 
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(LocaleHelper.onAttach(context));
@@ -43,8 +33,8 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    public void startAds(){
-      mainActivity.initAdsMain();
+    public void startAds() {
+        mainActivity.initAdsMain();
     }
 
     @Override
@@ -58,22 +48,6 @@ public class BaseFragment extends Fragment {
 
         super.onPause();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

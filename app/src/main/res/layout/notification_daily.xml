@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notification_daily_layout"
+    android:layout_width="match_parent"
+    android:layout_height="290dp"
+    android:background="@drawable/shape_notif_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/notification_daily_close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@string/notification_daily_title"
+        android:textColor="@color/color_2F2C4C"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/proxima_nova_semibold"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@string/notification_daily_description"
+        android:textColor="@color/color_2F2C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/notification_daily_clear_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/shape_notif_button_optimize"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:gravity="center"
+        android:paddingVertical="16dp"
+        android:text="@string/clear"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>

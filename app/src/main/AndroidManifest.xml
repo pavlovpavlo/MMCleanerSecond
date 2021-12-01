@@ -24,6 +24,13 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -33,7 +40,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MMCleaner">
-        <activity android:name=".ui.setting.SelectLanguageActivity"></activity>
         <activity
             android:name=".ui.optimized.AllCompleteActivity"
             android:theme="@style/Theme.MMCleaner.Animation" />
@@ -97,12 +103,14 @@
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"
+
             android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity
@@ -127,6 +135,43 @@
         </receiver>
 
         <service android:name=".util.widget.UpdateService" />
+
+        <!-- notifications -->
+
+        <activity
+            android:name=".ui.notifications.ui.NotificationActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@style/NotificationActivityStyle" />
+
+        <service
+            android:name=".ui.notifications.ui.NotificationService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".ui.notifications.ui.NotificationService$ServiceRestartReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".ui.notifications.ui.NotificationService$LanternReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".ui.notifications.utils.receivers.ActionReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".ui.notifications.utils.receivers.DailySchedule$DailyScheduleReceiver"
+            android:exported="false" />
+
     </application>
 
 </manifest>

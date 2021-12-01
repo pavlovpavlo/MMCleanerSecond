@@ -1,11 +1,13 @@
 package com.agento.mmcleaner;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,8 +16,12 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
 
-
+import com.agento.mmcleaner.events.AppInstallReferrer;
+import com.agento.mmcleaner.events.FirebaseLogger;
+import com.agento.mmcleaner.ui.notifications.ui.NotificationActivity;
+import com.agento.mmcleaner.ui.notifications.ui.NotificationService;
 import com.agento.mmcleaner.util.SingletonClassApp;
+import com.agento.mmcleaner.util.shared.LocalSharedUtil;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -46,38 +52,87 @@ public class MyApplication extends Application
     public static MyApplication get() {
         return sInstance;
     }
+
     private AppOpenAdManager appOpenAdManager;
     private Activity currentActivity;
+
+    private int currentScreen = 1;
+    private final Handler screenLeaveHandler = new Handler(Looper.getMainLooper());
+    private final Runnable screenLeaveCheck = new Runnable() {
+        @Override
+        public void run() {
+            ActivityManager.RunningAppProcessInfo info = new ActivityManager.RunningAppProcessInfo();
+            ActivityManager.getMyMemoryState(info);
+            boolean isAppInForeground = info.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
+
+            screenLeaveHandler.removeCallbacks(this);
+
+            if (!isAppInForeground)
+                FirebaseLogger.INSTANCE.log(FirebaseLogger.EventType.LEAVE_FROM_SCREEN_NUMBER, currentScreen);
+            else
+                setCurrentScreen(currentScreen);
+        }
+    };
+
+
+    public void setCurrentScreen(int screenId) {
+        currentScreen = screenId;
+        screenLeaveHandler.removeCallbacks(screenLeaveCheck);
+        screenLeaveHandler.postDelayed(screenLeaveCheck, 5 * 60_000L);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         this.registerActivityLifecycleCallbacks(this);
+        sInstance = this;
 
-        sInstance=this;
+        if (LocalSharedUtil.getBooleanParameter(LocalSharedUtil.IS_FIRST_OPEN, this)) {
+            new AppInstallReferrer(this);
+        }
 
+        if (LocalSharedUtil.isNotificationOn(this)) {
+            startNotificationService();
+        }
 
         MobileAds.initialize(
                 this,
                 new OnInitializationCompleteListener() {
                     @Override
                     public void onInitializationComplete(
-                            @NonNull InitializationStatus initializationStatus) {}
+                            @NonNull InitializationStatus initializationStatus) {
+                    }
                 });
 
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
         appOpenAdManager = new AppOpenAdManager();
+
+        LocalSharedUtil.setParameter(false, LocalSharedUtil.IS_FIRST_OPEN, this);
     }
 
-    /** LifecycleObserver method that shows the app open ad when the app moves to foreground. */
+    public void startNotificationService() {
+        NotificationService.Companion.start(this);
+    }
+
+    public void stopNotificationService() {
+        NotificationService.Companion.release(this);
+    }
+
+    /**
+     * LifecycleObserver method that shows the app open ad when the app moves to foreground.
+     */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     protected void onMoveToForeground() {
         // Show the ad (if available) when the app moves to foreground.
         appOpenAdManager.showAdIfAvailable(currentActivity);
     }
 
-    /** ActivityLifecycleCallback methods. */
+    /**
+     * ActivityLifecycleCallback methods.
+     */
     @Override
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {}
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+    }
 
     @Override
     public void onActivityStarted(@NonNull Activity activity) {
@@ -92,31 +147,35 @@ public class MyApplication extends Application
 
     @Override
     public void onActivityResumed(@NonNull Activity activity) {
-
     }
 
     @Override
     public void onActivityPaused(@NonNull Activity activity) {
-
     }
 
     @Override
     public void onActivityStopped(@NonNull Activity activity) {
-        SingletonClassApp.getInstance().block=true;
+        SingletonClassApp.getInstance().block = true;
     }
 
     @Override
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {}
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+    }
 
     @Override
     public void onActivityDestroyed(@NonNull Activity activity) {
-        SingletonClassApp.getInstance().block=false;
+        SingletonClassApp.getInstance().block = false;
     }
 
     /**
      * Shows an app open ad.
+     * <p>
+     * <<<<<<< HEAD
      *
-     * @param activity the activity that shows the app open ad
+     * @param activity                 the activity that shows the app open ad
+     *                                 =======
+     * @param activity                 the activity that shows the app open ad
+     *                                 >>>>>>> a14b5e379d3fb1abbc81e5f4604303d5f20d529a
      * @param onShowAdCompleteListener the listener to be notified when an app open ad is complete
      */
     public void showAdIfAvailable(
@@ -135,7 +194,9 @@ public class MyApplication extends Application
         void onShowAdComplete();
     }
 
-    /** Inner class that loads and shows app open ads. */
+    /**
+     * Inner class that loads and shows app open ads.
+     */
     private class AppOpenAdManager {
 
         private static final String LOG_TAG = "AppOpenAdManager";
@@ -145,11 +206,16 @@ public class MyApplication extends Application
         private boolean isLoadingAd = false;
         private boolean isShowingAd = false;
 
-        /** Keep track of the time an app open ad is loaded to ensure you don't show an expired ad. */
+        /**
+         * Keep track of the time an app open ad is loaded to ensure you don't show an expired ad.
+         */
         private long loadTime = 0;
 
-        /** Constructor. */
-        public AppOpenAdManager() {}
+        /**
+         * Constructor.
+         */
+        public AppOpenAdManager() {
+        }
 
         /**
          * Load an ad.
@@ -182,7 +248,7 @@ public class MyApplication extends Application
                             loadTime = (new Date()).getTime();
 
                             Log.d(LOG_TAG, "onAdLoaded.");
-                          //  Toast.makeText(context, "onAdLoaded", Toast.LENGTH_SHORT).show();
+                            //  Toast.makeText(context, "onAdLoaded", Toast.LENGTH_SHORT).show();
                         }
 
                         /**
@@ -194,19 +260,23 @@ public class MyApplication extends Application
                         public void onAdFailedToLoad(LoadAdError loadAdError) {
                             isLoadingAd = false;
                             Log.d(LOG_TAG, "onAdFailedToLoad: " + loadAdError.getMessage());
-                       //     Toast.makeText(context, "onAdFailedToLoad", Toast.LENGTH_SHORT).show();
+                            //     Toast.makeText(context, "onAdFailedToLoad", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
 
-        /** Check if ad was loaded more than n hours ago. */
+        /**
+         * Check if ad was loaded more than n hours ago.
+         */
         private boolean wasLoadTimeLessThanNHoursAgo(long numHours) {
             long dateDifference = (new Date()).getTime() - loadTime;
             long numMilliSecondsPerHour = 3600000;
             return (dateDifference < (numMilliSecondsPerHour * numHours));
         }
 
-        /** Check if ad exists and can be shown. */
+        /**
+         * Check if ad exists and can be shown.
+         */
         private boolean isAdAvailable() {
             // Ad references in the app open beta will time out after four hours, but this time limit
             // may change in future beta versions. For details, see:
@@ -232,8 +302,13 @@ public class MyApplication extends Application
 
         /**
          * Show the ad if one isn't already showing.
+         * <p>
+         * <<<<<<< HEAD
          *
-         * @param activity the activity that shows the app open ad
+         * @param activity                 the activity that shows the app open ad
+         *                                 =======
+         * @param activity                 the activity that shows the app open ad
+         *                                 >>>>>>> a14b5e379d3fb1abbc81e5f4604303d5f20d529a
          * @param onShowAdCompleteListener the listener to be notified when an app open ad is complete
          */
         private void showAdIfAvailable(
@@ -245,12 +320,15 @@ public class MyApplication extends Application
                 return;
             }
 
+            if (currentActivity.getClass().getSimpleName().equals(NotificationActivity.class.getSimpleName()))
+                return;
+
             // If the app open ad is not available yet, invoke the callback then load the ad.
             if (!isAdAvailable()) {
                 Log.d(LOG_TAG, "The app open ad is not ready yet.");
                 onShowAdCompleteListener.onShowAdComplete();
-                if (!SingletonClassApp.getInstance().block){
-                loadAd(activity);}
+                if (!SingletonClassApp.getInstance().block)
+                    loadAd(activity);
                 return;
             }
 
@@ -258,7 +336,16 @@ public class MyApplication extends Application
 
             appOpenAd.setFullScreenContentCallback(
                     new FullScreenContentCallback() {
-                        /** Called when full screen content is dismissed. */
+
+                        @Override
+                        public void onAdImpression() {
+                            super.onAdImpression();
+                            FirebaseLogger.INSTANCE.log(FirebaseLogger.EventType.ADS_APP_OPEN_CLICK_EVENT_1);
+                        }
+
+                        /**
+                         * Called when full screen content is dismissed.
+                         */
                         @Override
                         public void onAdDismissedFullScreenContent() {
                             // Set the reference to null so isAdAvailable() returns false.
@@ -266,11 +353,12 @@ public class MyApplication extends Application
                             isShowingAd = false;
 
                             Log.d(LOG_TAG, "onAdDismissedFullScreenContent.");
-                  //          Toast.makeText(activity, "onAdDismissedFullScreenContent", Toast.LENGTH_SHORT).show();
+                            //          Toast.makeText(activity, "onAdDismissedFullScreenContent", Toast.LENGTH_SHORT).show();
 
                             onShowAdCompleteListener.onShowAdComplete();
-                            if (!SingletonClassApp.getInstance().block){
-                            loadAd(activity);}
+                            if (!SingletonClassApp.getInstance().block) {
+                                loadAd(activity);
+                            }
                         }
 
                         /** Called when fullscreen content failed to show. */
@@ -280,25 +368,26 @@ public class MyApplication extends Application
                             isShowingAd = false;
 
                             Log.d(LOG_TAG, "onAdFailedToShowFullScreenContent: " + adError.getMessage());
-                   //         Toast.makeText(activity, "onAdFailedToShowFullScreenContent", Toast.LENGTH_SHORT)
-                    //                .show();
-
+                            //         Toast.makeText(activity, "onAdFailedToShowFullScreenContent", Toast.LENGTH_SHORT)
+                            //                .show();
                             onShowAdCompleteListener.onShowAdComplete();
-                            if (!SingletonClassApp.getInstance().block){
-                            loadAd(activity);}
+                            if (!SingletonClassApp.getInstance().block) {
+                                loadAd(activity);
+                            }
                         }
 
                         /** Called when fullscreen content is shown. */
                         @Override
                         public void onAdShowedFullScreenContent() {
                             Log.d(LOG_TAG, "onAdShowedFullScreenContent.");
-                     //       Toast.makeText(activity, "onAdShowedFullScreenContent", Toast.LENGTH_SHORT).show();
+                            //       Toast.makeText(activity, "onAdShowedFullScreenContent", Toast.LENGTH_SHORT).show();
                         }
                     });
 
             isShowingAd = true;
-            if (!SingletonClassApp.getInstance().block){
-            appOpenAd.show(activity);}
+            if (!SingletonClassApp.getInstance().block) {
+                appOpenAd.show(activity);
+            }
         }
     }
 }
