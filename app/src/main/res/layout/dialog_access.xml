@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/proxima_nova_semibold"
-        android:text="Allow MM Cleaner to acess your app statistics"
+        android:text="@string/allow_mm_cleaner_to_acess_your_app_statistics"
         android:textColor="@color/color_2F2C4C"
         android:textAlignment="center"
         android:textSize="25sp"/>
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/proxima_nova_regular"
-        android:text="Find MM Cleaner and turn it ON"
+        android:text="@string/find_mm_cleaner_and_turn_it_on"
         android:textColor="@color/color_8E9AAB"
         android:textAlignment="center"
         android:layout_marginTop="12dp"
@@ -63,7 +63,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/ic_backgound_main_btn"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="Allow"
+            android:text="@string/allow"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"/>
@@ -75,7 +75,7 @@
             android:layout_marginBottom="45dp"
             android:background="@drawable/ic_backgound_disallow_btn"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="Disallow"
+            android:text="@string/disallow"
             android:textAllCaps="false"
             android:textColor="@color/color_333A44"
             android:textSize="16sp"/>

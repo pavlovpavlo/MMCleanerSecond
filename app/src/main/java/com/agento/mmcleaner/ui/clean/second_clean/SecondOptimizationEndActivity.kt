@@ -68,7 +68,6 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
                                 )
                             )
                         }
-
                     })
                 } else {
                     startActivity(Intent(this, ThirdCleanActivity::class.java))
@@ -86,7 +85,6 @@ class SecondOptimizationEndActivity : BaseActivity(R.layout.fragment_second_opti
             LocalSharedUtil.SHARED_SECOND,
             this
         )
-
     }
 
     private fun initAds() {

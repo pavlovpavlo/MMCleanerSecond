@@ -131,7 +131,7 @@
             android:textSize="16sp"
             android:layout_marginTop="@dimen/top_margin_second_optim_text"
             android:textColor="@color/color_8E9AAB"
-            android:text="Acceleration..."
+            android:text="@string/acceleration"
             android:gravity="center"/>
 
         <TextView

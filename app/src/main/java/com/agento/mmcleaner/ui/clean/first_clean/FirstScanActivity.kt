@@ -1,25 +1,23 @@
 package com.agento.mmcleaner.ui.clean.first_clean
 
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.*
+import android.os.Build
+import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.widget.TextView
-import androidx.navigation.Navigation
 import cn.septenary.ui.widget.GradientProgressBar
 import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.events.FirebaseLogger
-import com.agento.mmcleaner.scan_util.*
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.notifications.ui.NotificationService
-import com.agento.mmcleaner.util.*
+import com.agento.mmcleaner.util.DiskStat
+import com.agento.mmcleaner.util.GradientProgressBarAnimation
+import com.agento.mmcleaner.util.SingletonClassApp
+import com.agento.mmcleaner.util.UtilPhoneInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.*
-
 
 class FirstScanActivity : BaseActivity(R.layout.fragment_first_scan) {
 
@@ -36,7 +34,6 @@ class FirstScanActivity : BaseActivity(R.layout.fragment_first_scan) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         initViews()
     }
 
@@ -60,7 +57,7 @@ class FirstScanActivity : BaseActivity(R.layout.fragment_first_scan) {
         setPhoneData()
     }
 
-    private fun startAnimation(from: Float, to: Float, duration: Long){
+    private fun startAnimation(from: Float, to: Float, duration: Long) {
         anim = GradientProgressBarAnimation(progressBar, from, to)
         anim.setProgress(progressText)
         anim.duration = duration
@@ -75,17 +72,17 @@ class FirstScanActivity : BaseActivity(R.layout.fragment_first_scan) {
         })
     }
 
-    private fun setPhoneData(){
+    private fun setPhoneData() {
         startShowAnimation()
 
         startAnimation(0f, 100f, 6000)
     }
 
-    private fun startShowAnimation(){
+    private fun startShowAnimation() {
         val brand = UtilPhoneInfo.getDeviceName()
         kotlinx.coroutines.GlobalScope.launch(context = Dispatchers.Main) {
-            for(i in 0..5){
-                when(i){
+            for (i in 0..5) {
+                when (i) {
                     0 -> {
                         brandText.text = brand.substring(0, brand.indexOf(" "))
                         (brandText.parent as View).visibility = View.VISIBLE
@@ -130,9 +127,9 @@ class FirstScanActivity : BaseActivity(R.layout.fragment_first_scan) {
     override fun onBackPressed() {
     }
 
-    private fun openNextScreen(){
+    private fun openNextScreen() {
         initAdsMain();
-        SingletonClassApp.getInstance().start_ads=4;
+        SingletonClassApp.getInstance().start_ads = 4;
 //        val intent = Intent(this, FirstCleanActivity::class.java)
 //        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
 //        startActivity(intent)

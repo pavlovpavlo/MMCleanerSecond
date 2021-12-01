@@ -55,6 +55,7 @@
         <entry key="app/src/main/res/layout/activity_setting.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/layout/activity_thanks.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/dialog_access.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/layout/dialog_quit.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/layout/fragment_first_optimization.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/layout/fragment_first_optimization_end.xml" value="0.1956521739130435" />
@@ -75,6 +76,7 @@
         <entry key="app/src/main/res/layout/notification_daily.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/notification_layout.xml" value="0.21510416666666668" />
         <entry key="app/src/main/res/layout/notification_long_time.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/layout/simple_widget.xml" value="0.5" />
       </map>
     </option>
   </component>

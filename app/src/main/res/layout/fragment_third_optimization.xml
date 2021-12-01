@@ -46,7 +46,7 @@
             android:textSize="25sp"
             android:textColor="@color/color_2F2C4C"
             android:layout_marginBottom="62dp"
-            android:text="Hibernation"
+            android:text="@string/hibernation"
             android:gravity="center"/>
 
         <include

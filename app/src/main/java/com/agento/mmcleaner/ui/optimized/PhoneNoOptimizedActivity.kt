@@ -1,8 +1,6 @@
 package com.agento.mmcleaner.ui.optimized
 
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -10,35 +8,25 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.Navigation
 import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
-import com.agento.mmcleaner.scan_util.model.JunkInfo
-import com.agento.mmcleaner.ui.MainActivity
-import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
+import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstScanActivity
 import com.agento.mmcleaner.ui.clean.second_clean.SecondCleanActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
-import com.agento.mmcleaner.ui.setting.SettingActivity
-import com.agento.mmcleaner.util.UStats
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
-import com.agento.mmcleaner.util.shared.SharedData
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
-import java.util.*
 
-class PhoneNoOptimizedActivity : AppCompatActivity() {
-
+class PhoneNoOptimizedActivity : BaseActivity(R.layout.activity_phone_no_optimized) {
     private lateinit var firstTab: LinearLayout
     private lateinit var secondTab: LinearLayout
     private lateinit var thirdTab: LinearLayout
-    private var intentOptimization : Intent? = null
+    private var intentOptimization: Intent? = null
     lateinit var loaderAnimation: Animation
     private lateinit var mAdView: AdView
     lateinit var adsLoader: ImageView
@@ -50,7 +38,6 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_phone_no_optimized)
         MyApplication.get().setCurrentScreen(15)
 
         initViews()
@@ -58,8 +45,9 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
     }
 
 
-    private fun initAds(){
+    private fun initAds() {
         mAdView = findViewById(R.id.adView)
+        adsLoader = findViewById(R.id.ads_loader)
 
         initializeBannerAd("ca-app-pub-3940256099942544~6300978111")
 
@@ -71,17 +59,18 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
         MobileAds.initialize(
             this
         ) { initializationStatus: InitializationStatus? -> }
-       // MobileAds.initialize(this, appUnitId)
+        // MobileAds.initialize(this, appUnitId)
 
     }
 
     private fun loadBannerAd() {
         startAnimation()
         val adRequest = AdRequest.Builder().build()
-        val listener =  object : AdListener() {
+        val listener = object : AdListener() {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
             }
@@ -93,6 +82,7 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
         mAdView.adListener = listener
         mAdView.loadAd(adRequest)
     }
+
     private fun startAnimation() {
         loaderAnimation =
             AnimationUtils.loadAnimation(this, R.anim.animation_loader)
@@ -112,28 +102,27 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
         adsLoader.animation = loaderAnimation
     }
 
-    private fun hideLoader(){
+    private fun hideLoader() {
         adsLoader.clearAnimation()
         loaderAnimation.cancel()
         loaderAnimation.reset()
         (adsLoader.parent as View).visibility = View.GONE
     }
 
-    private fun initViews(){
+    private fun initViews() {
         firstTab = findViewById(R.id.first_clean_tab)
         secondTab = findViewById(R.id.second_clean_tab)
         thirdTab = findViewById(R.id.third_clean_tab)
-        
+
         checkTabs()
     }
 
-    private fun checkTabs(){
-
-        if(LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_FIRST)){
+    private fun checkTabs() {
+        if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_FIRST)) {
             activeTabs(firstTab)
-        }else{
+        } else {
             dismissTabs(firstTab)
-            if(intentOptimization == null){
+            if (intentOptimization == null) {
                 intentOptimization = Intent(this, FirstScanActivity::class.java)
             }
             firstTab.setOnClickListener {
@@ -141,11 +130,11 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
             }
         }
 
-        if(LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND)){
+        if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND)) {
             activeTabs(secondTab)
-        }else{
+        } else {
             dismissTabs(secondTab)
-            if(intentOptimization == null){
+            if (intentOptimization == null) {
                 intentOptimization = Intent(this, SecondCleanActivity::class.java)
             }
             secondTab.setOnClickListener {
@@ -153,11 +142,11 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
             }
         }
 
-        if(LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_THIRD)){
+        if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_THIRD)) {
             activeTabs(thirdTab)
-        }else{
+        } else {
             dismissTabs(thirdTab)
-            if(intentOptimization == null){
+            if (intentOptimization == null) {
                 intentOptimization = Intent(this, ThirdCleanActivity::class.java)
             }
             thirdTab.setOnClickListener {
@@ -166,16 +155,16 @@ class PhoneNoOptimizedActivity : AppCompatActivity() {
         }
     }
 
-    private fun activeTabs(tab: LinearLayout){
+    private fun activeTabs(tab: LinearLayout) {
         tab.setBackgroundResource(R.drawable.ic_phone_nooptim_active)
         (tab.getChildAt(0) as TextView).setTextColor(resources.getColor(R.color.color_28BB63))
         (tab.getChildAt(1) as ImageView).setImageResource(R.drawable.ic_checkbox_on)
     }
 
-    private fun dismissTabs(tab: LinearLayout){
+    private fun dismissTabs(tab: LinearLayout) {
         tab.setBackgroundResource(R.drawable.ic_phone_nooptim_noactive)
         (tab.getChildAt(0) as TextView).setTextColor(resources.getColor(R.color.white))
         (tab.getChildAt(1) as ImageView).setImageResource(R.drawable.ic_checkbox_off)
     }
-    
+
 }

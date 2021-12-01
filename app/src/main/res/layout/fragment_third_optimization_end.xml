@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_semibold"
-                    android:text="Processes"
+                    android:text="@string/processes"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
-                    android:text="Hibernated!"
+                    android:text="@string/hibernated"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -81,7 +81,7 @@
             android:fontFamily="@font/proxima_nova_regular"
             android:gravity="center"
             android:maxLines="1"
-            android:text="Done!"
+            android:text="@string/done"
             android:textColor="@color/white"
             android:textSize="14sp" />
 

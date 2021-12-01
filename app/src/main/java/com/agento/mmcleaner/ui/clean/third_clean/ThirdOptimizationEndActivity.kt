@@ -9,9 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.Fragment
 import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.scan_util.model.JunkInfo
@@ -49,30 +47,40 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
         initViews()
     }
 
-    private fun initViews(){
+    private fun initViews() {
         adsLoader = findViewById(R.id.ads_loader)
         stars = arrayOf(
-                findViewById(R.id.star1),
-                findViewById(R.id.star2),
-                findViewById(R.id.star3),
-                findViewById(R.id.star4),
-                findViewById(R.id.star5)
+            findViewById(R.id.star1),
+            findViewById(R.id.star2),
+            findViewById(R.id.star3),
+            findViewById(R.id.star4),
+            findViewById(R.id.star5)
         )
         toMainBtn = findViewById(R.id.to_main)
         countApp = findViewById(R.id.count_app)
         usage = UStats.getUsageStatsList(this, true)
         countApp.text = usage.size.toString()
 
-        for(i in stars.indices){
+        for (i in stars.indices) {
             stars[i].setOnClickListener {
-                setStars(i+1)
-                if (i == 4){
+                setStars(i + 1)
+                if (i == 4) {
                     try {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${packageName}")))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=${packageName}")
+                            )
+                        )
                     } catch (e: ActivityNotFoundException) {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=${packageName}")))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=${packageName}")
+                            )
+                        )
                     }
-                }else{
+                } else {
                     val selectorIntent = Intent(Intent.ACTION_SENDTO)
                     selectorIntent.data = Uri.parse("mailto:")
 
@@ -96,11 +104,14 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
             startActivity(Intent(this, SecondMainActivity::class.java))
         }
         initAds()
-        LocalSharedUtil.setParameter(SharedData(Date().time.toString()), LocalSharedUtil.SHARED_THIRD, this)
-
+        LocalSharedUtil.setParameter(
+            SharedData(Date().time.toString()),
+            LocalSharedUtil.SHARED_THIRD,
+            this
+        )
     }
 
-    private fun initAds(){
+    private fun initAds() {
         mAdView = findViewById(R.id.adView)
 
         initializeBannerAd("ca-app-pub-3940256099942544~6300978111")
@@ -111,20 +122,21 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
     private fun initializeBannerAd(appUnitId: String) {
 
         MobileAds.initialize(
-          this
+            this
         ) { initializationStatus: InitializationStatus? -> }
 
-      //  MobileAds.initialize(this, appUnitId)
+        //  MobileAds.initialize(this, appUnitId)
 
     }
 
     private fun loadBannerAd() {
         startAnimation()
         val adRequest = AdRequest.Builder().build()
-        val listener =  object : AdListener() {
+        val listener = object : AdListener() {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
             }
@@ -136,6 +148,7 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
         mAdView.adListener = listener
         mAdView.loadAd(adRequest)
     }
+
     private fun startAnimation() {
         loaderAnimation =
             AnimationUtils.loadAnimation(this, R.anim.animation_loader)
@@ -155,19 +168,19 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
         adsLoader.animation = loaderAnimation
     }
 
-    private fun hideLoader(){
+    private fun hideLoader() {
         adsLoader.clearAnimation()
         loaderAnimation.cancel()
         loaderAnimation.reset()
         (adsLoader.parent as View).visibility = View.GONE
     }
 
-    private fun setStars(countSelectStars: Int){
-        for(i in 0 until countSelectStars){
+    private fun setStars(countSelectStars: Int) {
+        for (i in 0 until countSelectStars) {
             stars[i].setImageResource(R.drawable.ic_star_active)
         }
 
-        for(i in (countSelectStars) until stars.size){
+        for (i in (countSelectStars) until stars.size) {
             stars[i].setImageResource(R.drawable.ic_star_noactive)
         }
     }

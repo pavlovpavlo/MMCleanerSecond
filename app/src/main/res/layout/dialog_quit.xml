@@ -25,7 +25,7 @@
             android:layout_marginEnd="25dp"
             android:textAlignment="center"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="The phone is not fully\noptimized"
+            android:text="@string/the_phone_is_not_fully_noptimized"
             android:textColor="@color/color_2F2C4C"
             android:textSize="20sp" />
         <TextView
@@ -37,7 +37,7 @@
             android:layout_marginTop="19dp"
             android:textAlignment="center"
             android:fontFamily="@font/proxima_nova_regular"
-            android:text="Clear cache and temporary files to improve phone performance"
+            android:text="@string/clear_cache_and_temporary_files_to_improve_phone_performance"
             android:textColor="@color/color_333A44"
             android:textSize="14sp" />
 
@@ -48,7 +48,7 @@
             android:layout_marginTop="19dp"
             android:background="@drawable/ic_backgound_main_btn"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="Clear"
+            android:text="@string/clear"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -61,7 +61,7 @@
             android:layout_marginEnd="25dp"
             android:textAlignment="center"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="Exit"
+            android:text="@string/exit"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             android:layout_marginTop="10dp"

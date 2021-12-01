@@ -18,6 +18,7 @@ import com.agento.mmcleaner.ui.clean.second_clean.adapters.OnChangeProgramChecke
 import com.agento.mmcleaner.ui.clean.second_clean.adapters.RunProgramsAdapter
 import com.agento.mmcleaner.util.UStats
 import com.agento.mmcleaner.util.Util
+import com.agento.mmcleaner.util.UtilPhoneInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -39,13 +40,13 @@ class ThirdScanEndFragment : Fragment(R.layout.fragment_third_scan_end) {
         initViews()
     }
 
-    private fun initViews(){
+    private fun initViews() {
         runAppsList = thisView.findViewById(R.id.run_apps)
         countApp = thisView.findViewById(R.id.count_app)
         clearBtn = thisView.findViewById(R.id.clear_btn)
         runAppsList = thisView.findViewById(R.id.run_apps)
         usage = UStats.getUsageStatsList(requireContext(), true)
-        if(usage.size>0) {
+        if (usage.size > 0) {
             val usageStat = JunkInfo()
             usage.add(0, usageStat)
         }
@@ -54,13 +55,18 @@ class ThirdScanEndFragment : Fragment(R.layout.fragment_third_scan_end) {
         initList()
 
         clearBtn.setOnClickListener {
-            ThirdOptimizationFragment.usage = usage.filter { junkInfo -> junkInfo.isCheck } as MutableList<JunkInfo>
+            ThirdOptimizationFragment.usage =
+                usage.filter { junkInfo -> junkInfo.isCheck } as MutableList<JunkInfo>
             openNextStep()
         }
     }
 
     private fun initList() {
         runAppsList.layoutManager = LinearLayoutManager(requireContext())
+        for (i in 1 until usage.size) {
+            if (UtilPhoneInfo.toNormalFormat(usage[i].mSize.toDouble()).equals("-0 KB"))
+                usage.removeAt(i)
+        }
         adapter = RunProgramsAdapter(usage, requireActivity() as AppCompatActivity, object :
             OnChangeProgramCheckedListener {
             override fun onChange(positionProgram: Int) {
@@ -68,13 +74,13 @@ class ThirdScanEndFragment : Fragment(R.layout.fragment_third_scan_end) {
                     usage[positionProgram].isCheck = !usage[positionProgram].isCheck
                     var countChecked = 0
                     for (i in 1 until usage.size) {
-                        if(usage[i].isCheck)
+                        if (usage[i].isCheck)
                             countChecked++
 
                     }
-                    if(countChecked == 0)
+                    if (countChecked == 0)
                         usage[0].isCheck = false
-                }else{
+                } else {
                     usage[0].isCheck = !usage[0].isCheck
                     for (i in 1 until usage.size) {
                         usage[i].isCheck = usage[0].isCheck
@@ -107,9 +113,9 @@ class ThirdScanEndFragment : Fragment(R.layout.fragment_third_scan_end) {
                     (runAppsList.layoutManager as LinearLayoutManager)
                         .findFirstVisibleItemPosition()
                 )!!.itemView
-                            deleteItem(
-                                v, 0
-                            )
+                deleteItem(
+                    v, 0
+                )
                 if (i != (usage.size - 1))
                     delay(1050)
             }
@@ -117,7 +123,7 @@ class ThirdScanEndFragment : Fragment(R.layout.fragment_third_scan_end) {
         }
     }
 
-    private fun openNextStep(){
+    private fun openNextStep() {
         val controller = NavHostFragment.findNavController(this@ThirdScanEndFragment)
         controller.navigate(R.id.fragment_third_optimization, null, Util.generateNavOptions())
     }

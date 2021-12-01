@@ -15,8 +15,9 @@ import com.agento.mmcleaner.scan_util.model.JunkGroup
 import com.agento.mmcleaner.ui.clean.second_clean.adapters.OnChangeProgramCheckedListener
 import com.agento.mmcleaner.util.UtilPhoneInfo
 
-class JunkStepsAdapter(private var mList: List<JunkGroup>,
-                       private val listener: OnChangeStepCheckedListener
+class JunkStepsAdapter(
+    private var mList: List<JunkGroup>,
+    private val listener: OnChangeStepCheckedListener
 ) :
     RecyclerView.Adapter<JunkStepsAdapter.ViewHolder>() {
 
@@ -31,36 +32,40 @@ class JunkStepsAdapter(private var mList: List<JunkGroup>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val groupData = mList[position]
 
-        if(groupData.mChildren.isEmpty()){
+        if (groupData.mChildren.isEmpty()) {
             holder.groupSize.visibility = View.INVISIBLE
             holder.groupCheckbox.visibility = View.GONE
             holder.groupMinus.visibility = View.VISIBLE
-        }else{
+        } else {
             holder.groupSize.visibility = View.VISIBLE
             holder.groupCheckbox.visibility = View.VISIBLE
             holder.groupMinus.visibility = View.GONE
             holder.groupSize.text = UtilPhoneInfo.toNormalFormat(groupData.mSize.toDouble())
-            val adapter = JunkStepsProgramsAdapter(groupData.mChildren, object : OnChangeProgramCheckedListener{
-                override fun onChange(positionProgram: Int) {
-                    listener.onChange(positionProgram, position)
-                }
+            val adapter = JunkStepsProgramsAdapter(
+                groupData.mChildren,
+                object : OnChangeProgramCheckedListener {
+                    override fun onChange(positionProgram: Int) {
+                        listener.onChange(positionProgram, position)
+                    }
 
-            })
+                })
             holder.listProgram.layoutManager = LinearLayoutManager(holder.itemView.context)
             holder.listProgram.adapter = adapter
 
-            if(groupData.isOpen){
+            if (groupData.isOpen) {
                 holder.openContainer.visibility = View.VISIBLE
                 holder.groupArrow.setImageResource(R.drawable.ic_arrow_up)
                 holder.groupName.setTextColor(holder.itemView.resources.getColor(R.color.primary))
                 holder.groupImage.setColorFilter(
-                        ContextCompat.getColor(holder.itemView.context, R.color.primary))
-            }else{
+                    ContextCompat.getColor(holder.itemView.context, R.color.primary)
+                )
+            } else {
                 holder.openContainer.visibility = View.GONE
                 holder.groupArrow.setImageResource(R.drawable.ic_arrow_down)
                 holder.groupName.setTextColor(holder.itemView.resources.getColor(R.color.color_333A44))
                 holder.groupImage.setColorFilter(
-                        ContextCompat.getColor(holder.itemView.context, R.color.color_8E9AAB))
+                    ContextCompat.getColor(holder.itemView.context, R.color.color_8E9AAB)
+                )
             }
 
             holder.itemView.setOnClickListener {
@@ -68,21 +73,23 @@ class JunkStepsAdapter(private var mList: List<JunkGroup>,
                 notifyItemChanged(position)
             }
         }
-        holder.groupName.text = when(groupData.mType){
-            JunkGroup.GROUP_APK -> "APK files"
-            JunkGroup.GROUP_TEMPORARY_FILES -> "Temporary files"
-            JunkGroup.GROUP_ADVERTISING -> "Advertising rubbish"
-            JunkGroup.GROUP_CACHE -> "Application cache"
+        holder.groupName.text = when (groupData.mType) {
+            JunkGroup.GROUP_APK -> holder.itemView.context.getString(R.string.apk_files)
+            JunkGroup.GROUP_TEMPORARY_FILES -> holder.itemView.context.getString(R.string.temporary_files)
+            JunkGroup.GROUP_ADVERTISING -> holder.itemView.context.getString(R.string.advertising_rub)
+            JunkGroup.GROUP_CACHE -> holder.itemView.context.getString(R.string.app_cache)
             else -> ""
         }
 
-        holder.groupImage.setImageResource(when(groupData.mType){
-            JunkGroup.GROUP_APK -> R.drawable.ic_apk_files
-            JunkGroup.GROUP_TEMPORARY_FILES -> R.drawable.ic_temporary_files
-            JunkGroup.GROUP_ADVERTISING -> R.drawable.ic_adver_rubbish
-            JunkGroup.GROUP_CACHE -> R.drawable.ic_app_cache
-            else -> R.drawable.ic_app_cache
-        })
+        holder.groupImage.setImageResource(
+            when (groupData.mType) {
+                JunkGroup.GROUP_APK -> R.drawable.ic_apk_files
+                JunkGroup.GROUP_TEMPORARY_FILES -> R.drawable.ic_temporary_files
+                JunkGroup.GROUP_ADVERTISING -> R.drawable.ic_adver_rubbish
+                JunkGroup.GROUP_CACHE -> R.drawable.ic_app_cache
+                else -> R.drawable.ic_app_cache
+            }
+        )
 
         holder.groupCheckbox.isChecked = groupData.isCheck
         holder.groupCheckbox.setOnClickListener {

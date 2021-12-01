@@ -55,7 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Was released"
+                    android:text="@string/was_released"
                     android:textSize="14sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/proxima_nova_regular"/>
@@ -81,7 +81,7 @@
             android:fontFamily="@font/proxima_nova_regular"
             android:textColor="@color/white"
             android:gravity="center"
-            android:text="Treatment..."/>
+            android:text="@string/treatment"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -173,7 +173,7 @@
             android:textSize="25sp"
             android:layout_marginTop="@dimen/second_optimizet_title_margin_top"
             android:textColor="@color/color_2F2C4C"
-            android:text="Optimized!"/>
+            android:text="@string/optimized"/>
 
         <include
             android:layout_width="match_parent"

@@ -61,7 +61,7 @@
         android:textSize="25sp"
         android:textColor="@color/color_2F2C4C"
         android:layout_marginBottom="36dp"
-        android:text="Scanning..."
+        android:text="@string/scanning"
         android:gravity="center"/>
 
 

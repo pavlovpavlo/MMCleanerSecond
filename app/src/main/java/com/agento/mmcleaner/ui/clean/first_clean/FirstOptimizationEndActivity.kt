@@ -2,20 +2,16 @@ package com.agento.mmcleaner.ui.clean.first_clean
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.Fragment
 import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.clean.second_clean.SecondCleanActivity
-import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
 import com.agento.mmcleaner.ui.optimized.PhoneNoOptimizedActivity
 import com.agento.mmcleaner.util.UStats
@@ -38,9 +34,9 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
     private lateinit var mAdView: AdView
 
     override fun onBackPressed() {
-        if(isCheckOpen){
+        if (isCheckOpen) {
             hideCheck()
-        }else {
+        } else {
             startActivity(Intent(this, PhoneNoOptimizedActivity::class.java))
             finishAffinity()
         }
@@ -51,6 +47,7 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
         MyApplication.get().setCurrentScreen(6)
         initViews()
     }
+
     private fun initViews() {
         cleanBtn = findViewById(R.id.clear_btn)
         screenOptimized = findViewById(R.id.screen_optimized)
@@ -58,14 +55,19 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
         adsLoader = findViewById(R.id.ads_loader)
         cleanBtn.setOnClickListener {
 
-            if(LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND)) {
+            if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND)) {
                 finishAffinity()
                 startActivity(Intent(this, SecondMainActivity::class.java))
-            }else{
+            } else {
                 if (UStats.getUsageStatsList(this, false).isEmpty()) {
-                    checkPermissionUsage(object: OnPermissionUsageListener{
+                    checkPermissionUsage(object : OnPermissionUsageListener {
                         override fun onPermissionAction() {
-                            startActivity(Intent(this@FirstOptimizationEndActivity, SecondCleanActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@FirstOptimizationEndActivity,
+                                    SecondCleanActivity::class.java
+                                )
+                            )
                         }
 
                     })
@@ -82,8 +84,11 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
         startAnimation()
         initAds()
 
-        LocalSharedUtil.setParameter(SharedData(Date().time.toString()), LocalSharedUtil.SHARED_FIRST, this)
-
+        LocalSharedUtil.setParameter(
+            SharedData(Date().time.toString()),
+            LocalSharedUtil.SHARED_FIRST,
+            this
+        )
     }
 
     private fun initAds() {
@@ -100,17 +105,18 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
             this
         ) { initializationStatus: InitializationStatus? -> }
 
-     //   MobileAds.initialize(this, appUnitId)
+        //   MobileAds.initialize(this, appUnitId)
 
     }
 
     private fun loadBannerAd() {
 
         val adRequest = AdRequest.Builder().build()
-        val listener =  object : AdListener() {
+        val listener = object : AdListener() {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
             }
@@ -142,7 +148,7 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
         adsLoader.animation = loaderAnimation
     }
 
-    private fun hideLoader(){
+    private fun hideLoader() {
         adsLoader.clearAnimation()
         loaderAnimation.cancel()
         loaderAnimation.reset()

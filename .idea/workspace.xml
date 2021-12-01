@@ -13,7 +13,72 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4609d22-54fe-44bc-95b1-c104583662fe" name="Default Changelist" comment="" />
+    <list default="true" id="e4609d22-54fe-44bc-95b1-c104583662fe" name="Default Changelist" comment="before merge">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/setting/SelectLanguageActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/LocaleHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/UtilNotif.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_setting_item_bg_active.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_language.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/notification_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-es/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-in/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ko/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-pt/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/BaseActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/BaseFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/BaseFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/PrivacyPolicyActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/PrivacyPolicyActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstCleanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstCleanActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstOptimizationEndActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstOptimizationEndActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstOptimizationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstOptimizationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstScanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstScanActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/adapters/JunkStepsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/adapters/JunkStepsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondCleanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondCleanActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationEndActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationEndActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondScanEndFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondScanEndFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondScanFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondScanFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/adapters/RunProgramsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/adapters/RunProgramsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdCleanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdCleanActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationEndActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationEndActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdScanEndFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdScanEndFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdScanFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdScanFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/FirstMainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/FirstMainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/notifications/ui/NotificationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/notifications/ui/NotificationService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneNoOptimizedActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneNoOptimizedActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneOptimizedActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/optimized/PhoneOptimizedActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/setting/SettingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/setting/SettingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/splash/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/splash/SplashActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/thanks/ThanksActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/thanks/ThanksActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/shared/LocalSharedUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/shared/LocalSharedUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/widget/SimpleWidgetProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/widget/SimpleWidgetProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_access.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_access.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_quit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_quit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_optimization.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_optimization.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_optimization_end.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_optimization_end.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_phone_nooptimized.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_phone_nooptimized.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_optimization.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_optimization.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_optimization_end.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_optimization_end.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_scan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_scan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_scan_end.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_scan_end.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_optimization.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_optimization.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_optimization_end.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_optimization_end.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_scan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_scan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_scan_end.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_scan_end.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_scan_second.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_scan_second.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +95,23 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MM Cleaner" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MM Cleaner" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MM Cleaner" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -48,6 +129,13 @@
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="NO_FF" />
+      </set>
     </option>
   </component>
   <component name="Git.Settings">
@@ -263,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638389892387</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="before merge">
+      <created>1638391676670</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638391676670</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,19 +396,20 @@
     <MESSAGE value="todo" />
     <MESSAGE value="small event fixes" />
     <MESSAGE value="small event fixes x2" />
-    <option name="LAST_COMMIT_MESSAGE" value="small event fixes x2" />
+    <MESSAGE value="before merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="before merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationFragment.kt</url>
-          <line>63</line>
+          <line>56</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationFragment.kt</url>
-          <line>66</line>
+          <line>59</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -323,7 +419,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdOptimizationFragment.kt</url>
-          <line>70</line>
+          <line>63</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -338,47 +434,47 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdScanEndFragment.kt</url>
-          <line>67</line>
+          <line>73</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/third_clean/ThirdScanEndFragment.kt</url>
-          <line>77</line>
+          <line>83</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/adapters/RunProgramsAdapter.kt</url>
-          <line>67</line>
+          <line>61</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/second_clean/SecondOptimizationFragment.kt</url>
-          <line>84</line>
+          <line>75</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/clean/first_clean/FirstScanActivity.kt</url>
-          <line>110</line>
+          <line>107</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt</url>
-          <line>128</line>
+          <line>124</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/main/SecondMainActivity.kt</url>
-          <line>129</line>
+          <line>125</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/splash/SplashActivity.kt</url>
-          <line>142</line>
+          <line>138</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/ui/splash/SplashActivity.kt</url>
-          <line>144</line>
+          <line>140</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -388,22 +484,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/shared/LocalSharedUtil.java</url>
-          <line>102</line>
+          <line>103</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/shared/LocalSharedUtil.java</url>
-          <line>90</line>
+          <line>91</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/shared/LocalSharedUtil.java</url>
-          <line>96</line>
+          <line>97</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/agento/mmcleaner/util/shared/LocalSharedUtil.java</url>
-          <line>84</line>
+          <line>85</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>

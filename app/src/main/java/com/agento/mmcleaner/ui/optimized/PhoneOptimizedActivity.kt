@@ -3,28 +3,22 @@ package com.agento.mmcleaner.ui.optimized
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.agento.mmcleaner.R
-import com.agento.mmcleaner.scan_util.model.JunkInfo
+import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
-import com.agento.mmcleaner.util.UStats
-import com.agento.mmcleaner.util.shared.LocalSharedUtil
-import com.agento.mmcleaner.util.shared.SharedData
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
-import java.util.*
 
-class PhoneOptimizedActivity : AppCompatActivity() {
+class PhoneOptimizedActivity : BaseActivity(R.layout.activity_phone_optimized) {
 
     lateinit var toMainBtn: AppCompatButton
     lateinit var stars: Array<ImageView>
@@ -35,11 +29,10 @@ class PhoneOptimizedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_phone_optimized)
         initViews()
     }
 
-    private fun initViews(){
+    private fun initViews() {
         adsLoader = findViewById(R.id.ads_loader)
         stars = arrayOf(
             findViewById(R.id.star1),
@@ -50,16 +43,26 @@ class PhoneOptimizedActivity : AppCompatActivity() {
         )
         toMainBtn = findViewById(R.id.to_main)
 
-        for(i in stars.indices){
+        for (i in stars.indices) {
             stars[i].setOnClickListener {
-                setStars(i+1)
-                if (i == 4){
+                setStars(i + 1)
+                if (i == 4) {
                     try {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=$packageName")
+                            )
+                        )
                     } catch (e: ActivityNotFoundException) {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+                            )
+                        )
                     }
-                }else{
+                } else {
                     val selectorIntent = Intent(Intent.ACTION_SENDTO)
                     selectorIntent.data = Uri.parse("mailto:")
 
@@ -85,7 +88,7 @@ class PhoneOptimizedActivity : AppCompatActivity() {
         initAds()
     }
 
-    private fun initAds(){
+    private fun initAds() {
         mAdView = findViewById(R.id.adView)
 
         initializeBannerAd("ca-app-pub-3940256099942544~6300978111")
@@ -95,19 +98,20 @@ class PhoneOptimizedActivity : AppCompatActivity() {
 
     private fun initializeBannerAd(appUnitId: String) {
         MobileAds.initialize(
-           this
+            this
         ) { initializationStatus: InitializationStatus? -> }
-       // MobileAds.initialize(this, appUnitId)
+        // MobileAds.initialize(this, appUnitId)
 
     }
 
     private fun loadBannerAd() {
         startAnimation()
         val adRequest = AdRequest.Builder().build()
-        val listener =  object : AdListener() {
+        val listener = object : AdListener() {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
             }
@@ -119,6 +123,7 @@ class PhoneOptimizedActivity : AppCompatActivity() {
         mAdView.adListener = listener
         mAdView.loadAd(adRequest)
     }
+
     private fun startAnimation() {
         loaderAnimation =
             AnimationUtils.loadAnimation(this, R.anim.animation_loader)
@@ -138,19 +143,19 @@ class PhoneOptimizedActivity : AppCompatActivity() {
         adsLoader.animation = loaderAnimation
     }
 
-    private fun hideLoader(){
+    private fun hideLoader() {
         adsLoader.clearAnimation()
         loaderAnimation.cancel()
         loaderAnimation.reset()
         (adsLoader.parent as View).visibility = View.GONE
     }
 
-    private fun setStars(countSelectStars: Int){
-        for(i in 0 until countSelectStars){
+    private fun setStars(countSelectStars: Int) {
+        for (i in 0 until countSelectStars) {
             stars[i].setImageResource(R.drawable.ic_star_active)
         }
 
-        for(i in (countSelectStars) until stars.size){
+        for (i in (countSelectStars) until stars.size) {
             stars[i].setImageResource(R.drawable.ic_star_noactive)
         }
     }

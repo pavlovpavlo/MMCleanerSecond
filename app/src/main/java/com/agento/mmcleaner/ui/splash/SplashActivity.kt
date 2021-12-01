@@ -6,6 +6,7 @@ import android.content.Intent
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraManager
 import android.os.Build
+import android.util.Log
 import android.view.animation.Animation
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -29,6 +30,7 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
 
     override fun onResume() {
         super.onResume()
+
         MyApplication.get().setCurrentScreen(1)
 
         if (intent.getBooleanExtra(COME_FROM_WIDGET, false)) {
@@ -42,14 +44,6 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
         }
 
         initViews()
-//        if (SingletonClassApp.getInstance().ads_close){
-//            if (LocalSharedUtil.isFirstMainShared(this)){
-//                startActivity(Intent(applicationContext, SecondMainActivity::class.java))}
-//            else
-//                startActivity(Intent(applicationContext, FirstMainActivity::class.java))
-//            finish()
-//            SingletonClassApp.getInstance().ads_close = false
-        //}
     }
 
     private fun switchFlashLight(status: Boolean) {
@@ -61,12 +55,14 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
             e.printStackTrace()
         }
     }
+
     override fun onBackPressed() {
     }
 
     private fun initViews() {
+        //   SingletonClassApp.getInstance().block=true;
         val newString: String?
-        newString =intent.extras?.getString("notif")
+        newString = intent.extras?.getString("notif")
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
             cameraId = cameraManager.cameraIdList[0]
@@ -74,11 +70,11 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
             e.printStackTrace()
         }
 
-        if (newString.equals("lum")){
+        if (newString.equals("lum")) {
             switchFlashLight(true)
             LocalSharedUtil.setParameterInt(1, LocalSharedUtil.SHARED_LUMUS, this)
             NotificationService.refresh()
-        }else if (newString.equals("lum_act")){
+        } else if (newString.equals("lum_act")) {
             switchFlashLight(false)
             LocalSharedUtil.setParameterInt(0, LocalSharedUtil.SHARED_LUMUS, this)
             NotificationService.refresh()
@@ -86,8 +82,9 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
         val progressView = findViewById<ProgressBar>(R.id.progress)
         val privacyPolicy = findViewById<TextView>(R.id.privacy_policy)
 
-        if(LocalSharedUtil.isNotificationOn(this))
-
+        if (LocalSharedUtil.isNotificationOn(this)) {
+            //TODO move to MY APP and enable / disable notifications
+        }
 
         privacyPolicy.setOnClickListener {
             startActivity(Intent(applicationContext, PrivacyPolicyActivity::class.java))
@@ -109,20 +106,19 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
 
                 // If the application is not an instance of MyApplication, log an error message and
                 // start the MainActivity without showing the app open ad.
-                /*if (application !is MyApplication) {
+                if (application !is MyApplication) {
                     Log.e("LOG_TAG", "Failed to cast application to MyApplication.")
                     startNextActivity()
                     return
-                }*/
-                startNextActivity()
+                }
 
                 // Show the app open ad.
 
                 // Show the app open ad.
                 (application as MyApplication)
-                        .showAdIfAvailable(
-                                this@SplashActivity
-                        ) { startNextActivity() }
+                    .showAdIfAvailable(
+                        this@SplashActivity
+                    ) { startNextActivity() }
 
 
             }
@@ -135,13 +131,13 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
 
 //        val intent = Intent(this, MainActivity::class.java)
 //        this.startActivity(intent)
-        SingletonClassApp.getInstance().start=true;
-        SingletonClassApp.getInstance().block=true;
+        SingletonClassApp.getInstance().start = true;
+        SingletonClassApp.getInstance().block = true;
         SingletonClassApp.getInstance().ads_close = false
-        SingletonClassApp.getInstance().ads=false;
-        if (LocalSharedUtil.isFirstMainShared(this)){
-            startActivity(Intent(applicationContext, SecondMainActivity::class.java))}
-        else {
+        SingletonClassApp.getInstance().ads = false;
+        if (LocalSharedUtil.isFirstMainShared(this)) {
+            startActivity(Intent(applicationContext, SecondMainActivity::class.java))
+        } else {
             startActivity(Intent(applicationContext, FirstMainActivity::class.java))
         }
         finish()
@@ -157,9 +153,6 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
 //           finish()
 //           SingletonClassApp.getInstance().ads_close = false}
 //        }
-
-
-
 
 
     }

@@ -7,29 +7,21 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.provider.Settings
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation
 import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.ui.BaseActivity
-import com.agento.mmcleaner.ui.MainActivity
-import com.agento.mmcleaner.ui.clean.first_clean.FirstCleanActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstScanActivity
-import com.agento.mmcleaner.ui.clean.first_clean.FirstScanEndFragment
 import com.agento.mmcleaner.ui.clean.second_clean.SecondCleanActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
 import com.agento.mmcleaner.ui.optimized.AllCompleteActivity
@@ -69,9 +61,9 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
     var isPerm = false
 
     override fun onBackPressed() {
-        if(isCheckOpen){
+        if (isCheckOpen) {
             hideCheck()
-        }else {
+        } else {
             if (countOptimized == 3) {
                 if (doubleBackToExitPressedOnce) {
                     startActivity(Intent(this, ThanksActivity::class.java))
@@ -79,7 +71,11 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                     return
                 }
                 doubleBackToExitPressedOnce = true
-                Snackbar.make(findViewById(R.id.parent), "Click again to exit", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    findViewById(R.id.parent),
+                    getString(R.string.click_again_to_exit),
+                    Snackbar.LENGTH_SHORT
+                ).show()
                 Handler().postDelayed(Runnable {
                     doubleBackToExitPressedOnce = false
                 }, 2500)
@@ -126,7 +122,7 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
         checkTabs()
         initAds()
 
-        if(!LocalSharedUtil.isSecondMainShared(this)){
+        if (!LocalSharedUtil.isSecondMainShared(this)) {
             LocalSharedUtil.setSharedSecondMain(this)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 setWidget()
@@ -139,10 +135,10 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
         val packageManager = applicationContext.packageManager
 
         packageManager.setComponentEnabledSetting(
-                ComponentName(
-                        applicationContext,
-                        SimpleWidgetProvider::class.java
-                ), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP
+            ComponentName(
+                applicationContext,
+                SimpleWidgetProvider::class.java
+            ), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -151,15 +147,15 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
             if (appWidgetManager.isRequestPinAppWidgetSupported) {
                 val intent = Intent(this, SplashActivity::class.java)
                 val pendingIntent = PendingIntent.getBroadcast(
-                        this, 90065,
-                        intent, PendingIntent.FLAG_UPDATE_CURRENT
+                    this, 90065,
+                    intent, PendingIntent.FLAG_UPDATE_CURRENT
                 )
                 appWidgetManager.requestPinAppWidget(myProvider, null, pendingIntent)
             }
         }
     }
 
-    private fun initAds(){
+    private fun initAds() {
         mAdView = findViewById(R.id.adView)
 
         initializeBannerAd("ca-app-pub-3940256099942544~6300978111")
@@ -171,17 +167,18 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
         MobileAds.initialize(
             this
         ) { initializationStatus: InitializationStatus? -> }
-      //  MobileAds.initialize(this, appUnitId)
+        //  MobileAds.initialize(this, appUnitId)
 
     }
 
     private fun loadBannerAd() {
         startAnimation()
         val adRequest = AdRequest.Builder().build()
-        val listener =  object : AdListener() {
+        val listener = object : AdListener() {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
             }
@@ -193,6 +190,7 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
         mAdView.adListener = listener
         mAdView.loadAd(adRequest)
     }
+
     private fun startAnimation() {
         loaderAnimation =
             AnimationUtils.loadAnimation(this, R.anim.animation_loader)
@@ -218,20 +216,20 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 110011)  {
+        if (requestCode == 110011) {
             startActivity(Intent(this, FirstScanActivity::class.java))
         }
     }
 
     override fun onResume() {
         super.onResume()
-        if(isPerm){
+        if (isPerm) {
             startActivity(Intent(this, FirstScanActivity::class.java))
-            isPerm=false
+            isPerm = false
         }
     }
 
-    private fun hideLoader(){
+    private fun hideLoader() {
         adsLoader.clearAnimation()
         loaderAnimation.cancel()
         loaderAnimation.reset()
@@ -243,13 +241,17 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
             activeTabs(firstTab)
             countOptimized++
             firstTab.setOnClickListener {
-                Snackbar.make(findViewById(R.id.parent), "This operation has already been performed", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    findViewById(R.id.parent),
+                    getString(R.string.operation_been_performed),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         } else {
             dismissTabs(firstTab)
             if (intentOptimization == null) {
-                quitText.text = "Clear cache and temporary files to improve phone performance!"
-                quitClear.text = "Clear"
+                quitText.text = getString(R.string.clear_cache_and_temporary)
+                quitClear.text = getString(R.string.clear)
                 intentOptimization = Intent(this, FirstScanActivity::class.java)
             }
             firstTab.setOnClickListener {
@@ -266,20 +268,29 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
             activeTabs(secondTab)
             countOptimized++
             secondTab.setOnClickListener {
-                Snackbar.make(findViewById(R.id.parent), "This operation has already been performed", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    findViewById(R.id.parent),
+                    getString(R.string.operation_been_performed),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         } else {
             dismissTabs(secondTab)
             if (intentOptimization == null) {
-                quitText.text = "Free up memory and speed up your phone!"
-                quitClear.text = "Speed up"
+                quitText.text = getString(R.string.free_up_memory_and_speed_up)
+                quitClear.text = getString(R.string.speed_up)
                 intentOptimization = Intent(this, SecondCleanActivity::class.java)
             }
             secondTab.setOnClickListener {
                 if (UStats.getUsageStatsList(this, false).isEmpty()) {
-                    checkPermissionUsage(object: OnPermissionUsageListener{
+                    checkPermissionUsage(object : OnPermissionUsageListener {
                         override fun onPermissionAction() {
-                            startActivity(Intent(this@SecondMainActivity, SecondCleanActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@SecondMainActivity,
+                                    SecondCleanActivity::class.java
+                                )
+                            )
                         }
 
                     })
@@ -292,26 +303,33 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
             }
         }
 
-
         if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_THIRD)) {
             activeTabs(thirdTab)
             countOptimized++
             thirdTab.setOnClickListener {
-                Snackbar.make(findViewById(R.id.parent), "This operation has already been performed", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    findViewById(R.id.parent),
+                    getString(R.string.operation_been_performed),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         } else {
             dismissTabs(thirdTab)
             if (intentOptimization == null) {
-                quitText.text =
-                    "Hibernate apps that consume a lot of power and optimize battery consumption!"
-                quitClear.text = "Optimization"
+                quitText.text = getString(R.string.hibernate_apps_that_consume)
+                quitClear.text = getString(R.string.optimization)
                 intentOptimization = Intent(this, ThirdCleanActivity::class.java)
             }
             thirdTab.setOnClickListener {
                 if (UStats.getUsageStatsList(this, false).isEmpty()) {
-                    checkPermissionUsage(object: OnPermissionUsageListener{
+                    checkPermissionUsage(object : OnPermissionUsageListener {
                         override fun onPermissionAction() {
-                            startActivity(Intent(this@SecondMainActivity, ThirdCleanActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@SecondMainActivity,
+                                    ThirdCleanActivity::class.java
+                                )
+                            )
                         }
 
                     })
@@ -325,7 +343,7 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
         }
 
         if (countOptimized == 3) {
-            firstMainDescription.text = "Your phone has been optimized!"
+            firstMainDescription.text = getString(R.string.your_phone_has_been_optimized)
             scanBtn.setImageResource(R.drawable.ic_scan_pasive)
             scanBtnBorder.visibility = View.GONE
             firstTab.setOnClickListener {
@@ -338,7 +356,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 startActivity(Intent(this, AllCompleteActivity::class.java))
             }
         } else {
-            firstMainDescription.text = "${3 - countOptimized} of 3 operation failed!"
+            firstMainDescription.text =
+                "${3 - countOptimized} " + getString(R.string.operation_failed)
             scanBtn.setImageResource(R.drawable.ic_scan_main)
             scanBtn.setOnClickListener {
                 if (intentOptimization != null) {

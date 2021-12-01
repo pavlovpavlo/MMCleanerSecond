@@ -50,14 +50,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Background processes"
+                    android:text="@string/background_processes"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/proxima_nova_semibold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Energy consumption: Very high"
+                    android:text="@string/energy_consumption_very_high"
                     android:textSize="14sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/proxima_nova_regular"/>
@@ -82,7 +82,7 @@
             android:textAlignment="center"
             android:fontFamily="@font/proxima_nova_regular"
             android:textColor="@color/white"
-            android:text="Done..."/>
+            android:text="@string/done_scan"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/run_apps"

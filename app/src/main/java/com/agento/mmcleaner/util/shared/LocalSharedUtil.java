@@ -39,11 +39,12 @@ public class LocalSharedUtil {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getInt(key, 0);
     }
+
     public static long getParameterTime(String key, Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         Calendar cal = Calendar.getInstance(Locale.getDefault());
         long firstTimestampInSec = cal.getTimeInMillis() / 1000;
-        return preferences.getLong(key, firstTimestampInSec+172800);
+        return preferences.getLong(key, firstTimestampInSec + 172800);
     }
 
     public static void setParameterInt(int value, String key, Context context) {
@@ -106,7 +107,7 @@ public class LocalSharedUtil {
     public static boolean isStepOptimized(Context context, String sharedKey) {
         SharedData data = LocalSharedUtil.getParameter(sharedKey, context);
 
-        if(data == null)
+        if (data == null)
             return false;
         return (Long.parseLong(data.date) + 43_200_000) > new Date().getTime();
     }

@@ -148,7 +148,10 @@ class NotificationService : LifecycleService() {
     private fun initializeRemoteViews() {
         val contentView = RemoteViews(packageName, R.layout.notification_long_time)
 
-        val radio = Intent(this, FirstScanActivity::class.java).putExtra(COME_FROM_NOTIFICATION_SERVICE, true)
+        val radio = Intent(this, FirstScanActivity::class.java).putExtra(
+            COME_FROM_NOTIFICATION_SERVICE,
+            true
+        )
         val pRadio = PendingIntent.getActivity(this, 0, radio, 0)
         if (!LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_FIRST))
             contentView.setImageViewResource(R.id.clear, R.drawable.ic_junk_pass)
@@ -157,7 +160,10 @@ class NotificationService : LifecycleService() {
 
         contentView.setOnClickPendingIntent(R.id.clear, pRadio)
 
-        val volume = Intent(this, SecondCleanActivity::class.java).putExtra(COME_FROM_NOTIFICATION_SERVICE, true)
+        val volume = Intent(this, SecondCleanActivity::class.java).putExtra(
+            COME_FROM_NOTIFICATION_SERVICE,
+            true
+        )
         val pVolume = PendingIntent.getActivity(this, 1, volume, 0)
         if (!LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND))
             contentView.setImageViewResource(R.id.batteru, R.drawable.ic_battery_pass)
@@ -166,7 +172,10 @@ class NotificationService : LifecycleService() {
 
         contentView.setOnClickPendingIntent(R.id.batteru, pVolume)
 
-        val reboot = Intent(this, FirstScanActivity::class.java).putExtra(COME_FROM_NOTIFICATION_SERVICE, true)
+        val reboot = Intent(this, FirstScanActivity::class.java).putExtra(
+            COME_FROM_NOTIFICATION_SERVICE,
+            true
+        )
         val pReboot = PendingIntent.getActivity(this, 5, reboot, 0)
         if (!LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_THIRD))
             contentView.setImageViewResource(R.id.speed, R.drawable.ic_booster_pass)
@@ -175,7 +184,8 @@ class NotificationService : LifecycleService() {
 
         contentView.setOnClickPendingIntent(R.id.speed, pReboot)
 
-        val top = Intent(this, SplashActivity::class.java).putExtra(COME_FROM_NOTIFICATION_SERVICE, true)
+        val top =
+            Intent(this, SplashActivity::class.java).putExtra(COME_FROM_NOTIFICATION_SERVICE, true)
         val pTop = PendingIntent.getActivity(this, 3, top, 0)
 
         if (cpuTemperature() > 40)

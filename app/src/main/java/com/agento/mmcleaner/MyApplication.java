@@ -78,7 +78,7 @@ public class MyApplication extends Application
     public void setCurrentScreen(int screenId) {
         currentScreen = screenId;
         screenLeaveHandler.removeCallbacks(screenLeaveCheck);
-        screenLeaveHandler.postDelayed(screenLeaveCheck, 5*60_000L);
+        screenLeaveHandler.postDelayed(screenLeaveCheck, 5 * 60_000L);
     }
 
     @Override
@@ -145,6 +145,7 @@ public class MyApplication extends Application
 
     @Override
     public void onActivityStopped(@NonNull Activity activity) {
+        SingletonClassApp.getInstance().block = true;
     }
 
     @Override
@@ -158,8 +159,13 @@ public class MyApplication extends Application
 
     /**
      * Shows an app open ad.
+     * <p>
+     * <<<<<<< HEAD
      *
      * @param activity                 the activity that shows the app open ad
+     *                                 =======
+     * @param activity                 the activity that shows the app open ad
+     *                                 >>>>>>> a14b5e379d3fb1abbc81e5f4604303d5f20d529a
      * @param onShowAdCompleteListener the listener to be notified when an app open ad is complete
      */
     public void showAdIfAvailable(
@@ -184,7 +190,7 @@ public class MyApplication extends Application
     private class AppOpenAdManager {
 
         private static final String LOG_TAG = "AppOpenAdManager";
-        private static final String AD_UNIT_ID = "/6499/example/app-open";
+        private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294";
 
         private AppOpenAd appOpenAd = null;
         private boolean isLoadingAd = false;
@@ -286,8 +292,13 @@ public class MyApplication extends Application
 
         /**
          * Show the ad if one isn't already showing.
+         * <p>
+         * <<<<<<< HEAD
          *
          * @param activity                 the activity that shows the app open ad
+         *                                 =======
+         * @param activity                 the activity that shows the app open ad
+         *                                 >>>>>>> a14b5e379d3fb1abbc81e5f4604303d5f20d529a
          * @param onShowAdCompleteListener the listener to be notified when an app open ad is complete
          */
         private void showAdIfAvailable(
@@ -306,9 +317,8 @@ public class MyApplication extends Application
             if (!isAdAvailable()) {
                 Log.d(LOG_TAG, "The app open ad is not ready yet.");
                 onShowAdCompleteListener.onShowAdComplete();
-                if (!SingletonClassApp.getInstance().block) {
+                if (!SingletonClassApp.getInstance().block)
                     loadAd(activity);
-                }
                 return;
             }
 
@@ -341,7 +351,6 @@ public class MyApplication extends Application
                             Log.d(LOG_TAG, "onAdFailedToShowFullScreenContent: " + adError.getMessage());
                             //         Toast.makeText(activity, "onAdFailedToShowFullScreenContent", Toast.LENGTH_SHORT)
                             //                .show();
-
                             onShowAdCompleteListener.onShowAdComplete();
                             if (!SingletonClassApp.getInstance().block) {
                                 loadAd(activity);
