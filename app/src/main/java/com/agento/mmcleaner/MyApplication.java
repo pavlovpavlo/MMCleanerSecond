@@ -91,13 +91,19 @@ public class MyApplication extends Application
     }
 
     @Override
-    public void onActivityResumed(@NonNull Activity activity) {}
+    public void onActivityResumed(@NonNull Activity activity) {
+
+    }
 
     @Override
-    public void onActivityPaused(@NonNull Activity activity) {}
+    public void onActivityPaused(@NonNull Activity activity) {
+
+    }
 
     @Override
-    public void onActivityStopped(@NonNull Activity activity) {}
+    public void onActivityStopped(@NonNull Activity activity) {
+        SingletonClassApp.getInstance().block=true;
+    }
 
     @Override
     public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {}
@@ -133,7 +139,7 @@ public class MyApplication extends Application
     private class AppOpenAdManager {
 
         private static final String LOG_TAG = "AppOpenAdManager";
-        private static final String AD_UNIT_ID = "/6499/example/app-open";
+        private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294";
 
         private AppOpenAd appOpenAd = null;
         private boolean isLoadingAd = false;
