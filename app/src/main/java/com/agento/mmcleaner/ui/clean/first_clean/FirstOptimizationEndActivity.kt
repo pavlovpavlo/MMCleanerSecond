@@ -85,17 +85,11 @@ class FirstOptimizationEndActivity : BaseActivity(R.layout.fragment_first_optimi
         startAnimation()
         initAds()
 
-<<<<<<< HEAD
-        LocalSharedUtil.setParameter(SharedData(Date().time.toString()), LocalSharedUtil.SHARED_FIRST, this)
-        if(LocalSharedUtil.isNotificationOn(this))
-            UtilNotif.showScheduleNotification(this)
-=======
         LocalSharedUtil.setParameter(
             SharedData(Date().time.toString()),
             LocalSharedUtil.SHARED_FIRST,
             this
         )
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
     }
 
     private fun initAds() {

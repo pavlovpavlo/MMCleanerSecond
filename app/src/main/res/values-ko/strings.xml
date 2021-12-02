@@ -88,4 +88,17 @@
     <string name="employed">고용\">% 고용</string>
     <string name="chose_all">모두 선택</string>
     <string name="count_app">애플리케이션</string>
+    <string name="cleaning">청소 중...</string>
+    <string name="notification_clear">지우기</string>
+    <string name="notification_cancel">취소</string>
+    <string name="notification_optimize">최적화</string>
+    <string name="notification_charging_placeholder">%d%% 충전 중</string>
+    <string name="notification_programs_slow_down_text_placeholder">%d 프로그램이 충전 속도를 늦춥니다</string>
+    <string name="notification_residual_data_found">잔여 데이터 발견</string>
+    <string name="notification_after_unloading_placeholder">언로드 후 <b>%.1fMB</b>의 나머지 부분이\\n많은 메모리를 확보하기 위해 청소하는 것으로 나타났습니다</string>
+    <string name="notification_ads_trash">광고 쓰레기</string>
+    <string name="notification_apps_cache">앱 캐시</string>
+    <string name="notification_other_trash">기타 쓰레기</string>
+    <string name="notification_daily_description"><font color="#FE6201">1일</font> 동안 휴지통을 청소하지 않았습니다</string>
+    <string name="of">NS</string>
 </resources>

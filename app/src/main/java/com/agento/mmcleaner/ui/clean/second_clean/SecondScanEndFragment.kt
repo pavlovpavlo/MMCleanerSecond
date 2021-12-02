@@ -67,7 +67,7 @@ class SecondScanEndFragment : Fragment(R.layout.fragment_second_scan_end) {
 
     private fun initList() {
         runAppsList.layoutManager = LinearLayoutManager(requireContext())
-        for (i in 1 until usage.size) {
+        for (i in 1 until usage.size-1) {
             if (UtilPhoneInfo.toNormalFormat(usage[i].mSize.toDouble()).equals("-0 KB"))
                 usage.removeAt(i)
         }

@@ -16,6 +16,7 @@ import com.agento.mmcleaner.events.FirebaseLogger
 import com.agento.mmcleaner.scan_util.model.JunkInfo
 import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
+import com.agento.mmcleaner.ui.notifications.ui.NotificationService
 import com.agento.mmcleaner.util.UStats
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.shared.SharedData
@@ -105,17 +106,11 @@ class ThirdOptimizationEndActivity : BaseActivity(R.layout.fragment_third_optimi
             startActivity(Intent(this, SecondMainActivity::class.java))
         }
         initAds()
-<<<<<<< HEAD
+
         LocalSharedUtil.setParameter(SharedData(Date().time.toString()), LocalSharedUtil.SHARED_THIRD, this)
         if(LocalSharedUtil.isNotificationOn(this))
-            UtilNotif.showScheduleNotification(this)
-=======
-        LocalSharedUtil.setParameter(
-            SharedData(Date().time.toString()),
-            LocalSharedUtil.SHARED_THIRD,
-            this
-        )
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
+            NotificationService.refresh()
+
     }
 
     private fun initAds() {

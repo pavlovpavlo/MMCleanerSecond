@@ -16,6 +16,7 @@ import com.agento.mmcleaner.ui.clean.first_clean.FirstScanActivity
 import com.agento.mmcleaner.ui.clean.second_clean.SecondCleanActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
 import com.agento.mmcleaner.ui.main.SecondMainActivity
+import com.agento.mmcleaner.ui.notifications.ui.NotificationService
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -123,15 +124,10 @@ class PhoneNoOptimizedActivity : BaseActivity(R.layout.activity_phone_no_optimiz
         checkTabs()
     }
 
-<<<<<<< HEAD
     private fun checkTabs(){
         if(LocalSharedUtil.isNotificationOn(this))
-            UtilNotif.showScheduleNotification(this)
+            NotificationService.refresh()
         if(LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_FIRST)){
-=======
-    private fun checkTabs() {
-        if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_FIRST)) {
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
             activeTabs(firstTab)
         } else {
             dismissTabs(firstTab)

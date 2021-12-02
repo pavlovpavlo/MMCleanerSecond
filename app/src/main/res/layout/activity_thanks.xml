@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/proxima_nova_semibold"
-        android:text="Thanks!"
+        android:text="@string/thanks"
         android:layout_marginTop="75dp"
         android:textColor="@color/color_333A44"
         android:textSize="25sp" />
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/proxima_nova_regular"
-        android:text="We will continue to protect your phone"
+        android:text="@string/we_will_continue_to_protect_your_phone"
         android:textColor="@color/color_333A44"
         android:layout_marginTop="21dp"
         android:textSize="18sp" />

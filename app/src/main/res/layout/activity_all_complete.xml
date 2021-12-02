@@ -56,7 +56,7 @@
             android:fontFamily="@font/proxima_nova_regular"
             android:gravity="center"
             android:maxLines="1"
-            android:text="Done!"
+            android:text="@string/done"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/proxima_nova_regular"
-                        android:text="We'll let you know when your phone needs cleaning"
+                        android:text="@string/we_ll_let_you_know_when_your_phone_needs_cleaning"
                         android:textColor="@color/color_333A44"
                         android:textSize="14sp" />
 

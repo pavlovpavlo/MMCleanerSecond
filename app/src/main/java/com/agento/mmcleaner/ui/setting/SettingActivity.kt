@@ -23,7 +23,6 @@ import com.agento.mmcleaner.ui.PrivacyPolicyActivity
 import com.agento.mmcleaner.ui.optimized.PhoneOptimizedActivity
 import com.agento.mmcleaner.ui.splash.SplashActivity
 import com.agento.mmcleaner.util.LocaleHelper
-import com.agento.mmcleaner.util.UtilNotif
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
 import com.agento.mmcleaner.util.widget.SimpleWidgetProvider
 import java.util.*

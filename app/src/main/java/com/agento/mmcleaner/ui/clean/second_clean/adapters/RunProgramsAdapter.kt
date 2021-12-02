@@ -36,7 +36,7 @@ class RunProgramsAdapter(
             holder.programImage.setImageResource(R.drawable.ic_category)
             holder.programName.text = holder.itemView.context.getString(R.string.chose_all)
             holder.programSize.text =
-                "${mList.size - 1}" + holder.itemView.context.getString(R.string.count_app)
+                "${mList.size - 1} " + holder.itemView.context.getString(R.string.count_app)
         } else {
             val pm: PackageManager = activity.packageManager
 

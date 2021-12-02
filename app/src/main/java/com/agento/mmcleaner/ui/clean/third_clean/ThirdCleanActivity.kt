@@ -1,15 +1,14 @@
 package com.agento.mmcleaner.ui.clean.third_clean
 
 import android.content.Intent
+import android.os.Bundle
 import androidx.navigation.Navigation
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.ui.BaseActivity
+import com.agento.mmcleaner.ui.notifications.ui.NotificationService
 import com.agento.mmcleaner.ui.optimized.PhoneNoOptimizedActivity
-<<<<<<< HEAD
-import com.agento.mmcleaner.util.UtilNotif
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
-=======
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
+
 
 class ThirdCleanActivity : BaseActivity(R.layout.activity_third_clean) {
 
@@ -28,13 +27,11 @@ class ThirdCleanActivity : BaseActivity(R.layout.activity_third_clean) {
             }
         }
     }
-<<<<<<< HEAD
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if(LocalSharedUtil.isNotificationOn(this))
-            UtilNotif.showScheduleNotification(this)
+            NotificationService.refresh()
     }
-=======
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
 }

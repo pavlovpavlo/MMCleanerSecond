@@ -62,7 +62,7 @@
     <string name="was_released">Fue lanzado</string>
     <string name="optimized">¡Optimizado!</string>
     <string name="acceleration">Aceleración ...</string>
-    <string name="the_phone_is_not_fully_noptimized">El teléfono no está completamente \\ noptimizado</string>
+    <string name="the_phone_is_not_fully_noptimized">El teléfono no está completamente \noptimizado</string>
     <string name="clear_cache_and_temporary_files_to_improve_phone_performance">Borre el caché y los archivos temporales para mejorar el rendimiento del teléfono</string>
     <string name="exit">Salir</string>
     <string name="allow_mm_cleaner_to_acess_your_app_statistics">Permita que MM Cleaner acceda a las estadísticas de su aplicación</string>
@@ -88,4 +88,17 @@
     <string name="employed">% empleado</string>
     <string name="chose_all">Elegir todo</string>
     <string name="count_app">aplicaciones</string>
+    <string name="cleaning">Limpiando ...</string>
+    <string name="notification_clear">Borrar</string>
+    <string name="notification_cancel">Cancelar</string>
+    <string name="notification_optimize">Optimizar</string>
+    <string name="notification_charging_placeholder">Cargando% d %%</string>
+    <string name="notification_programs_slow_down_text_placeholder">% d programas reducen la velocidad de carga</string>
+    <string name="notification_residual_data_found">​​Se encontraron datos residuales</string>
+    <string name="notification_after_unloading_placeholder">después de la descarga, el resto de <b>% .1fMB </b> \n se encontró limpiando para obtener mucha memoria</string>
+    <string name="notification_ads_trash">Anuncios basura</string>
+    <string name="notification_apps_cache">Caché de aplicaciones</string>
+    <string name="notification_other_trash">Otra basura</string>
+    <string name="notification_daily_description">No limpiaste la basura en <font color="# FE6201"> 1 día </font></string>
+    <string name="of">de</string>
 </resources>

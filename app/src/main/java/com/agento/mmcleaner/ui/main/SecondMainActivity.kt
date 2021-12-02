@@ -25,6 +25,7 @@ import com.agento.mmcleaner.ui.BaseActivity
 import com.agento.mmcleaner.ui.clean.first_clean.FirstScanActivity
 import com.agento.mmcleaner.ui.clean.second_clean.SecondCleanActivity
 import com.agento.mmcleaner.ui.clean.third_clean.ThirdCleanActivity
+import com.agento.mmcleaner.ui.notifications.ui.NotificationService
 import com.agento.mmcleaner.ui.optimized.AllCompleteActivity
 import com.agento.mmcleaner.ui.setting.SettingActivity
 import com.agento.mmcleaner.ui.splash.SplashActivity
@@ -60,6 +61,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
     private lateinit var mAdView: AdView
     lateinit var adsLoader: ImageView
     var isPerm = false
+
+
 
     override fun onBackPressed() {
         if (isCheckOpen) {
@@ -261,6 +264,7 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 intentOptimization = Intent(this, FirstScanActivity::class.java)
             }
             firstTab.setOnClickListener {
+                isPerm = true
                 if (!UtilPermissions.isPermissionDenied(this, true)) {
                     startActivity(Intent(this, FirstScanActivity::class.java))
                 }
@@ -269,12 +273,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 }
             }
         }
-<<<<<<< HEAD
         if(LocalSharedUtil.isNotificationOn(this))
-            UtilNotif.showScheduleNotification(this)
-=======
-
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
+            NotificationService.refresh()
         if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_SECOND)) {
             activeTabs(secondTab)
             countOptimized++
@@ -313,11 +313,7 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 }
             }
         }
-<<<<<<< HEAD
-        if(LocalSharedUtil.isNotificationOn(this))
-            UtilNotif.showScheduleNotification(this)
-=======
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
+
 
         if (LocalSharedUtil.isStepOptimized(this, LocalSharedUtil.SHARED_THIRD)) {
             activeTabs(thirdTab)

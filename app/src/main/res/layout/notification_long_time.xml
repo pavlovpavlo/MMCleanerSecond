@@ -27,7 +27,7 @@
             android:fontFamily="@font/proxima_nova_semibold"
             android:textColor="@color/color_8E9AAB"
             android:textSize="10sp"
-            android:text="Clear"/>
+            android:text="@string/clear"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/battery_l"
@@ -51,7 +51,7 @@
             android:fontFamily="@font/proxima_nova_semibold"
             android:textColor="@color/color_8E9AAB"
             android:textSize="10sp"
-            android:text="Baterry"/>
+            android:text="@string/battery"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/booster_l"
@@ -75,7 +75,7 @@
             android:fontFamily="@font/proxima_nova_semibold"
             android:textColor="@color/color_8E9AAB"
             android:textSize="10sp"
-            android:text="Speed up"/>
+            android:text="@string/speed_up"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
@@ -98,7 +98,7 @@
             android:fontFamily="@font/proxima_nova_semibold"
             android:textColor="@color/color_8E9AAB"
             android:textSize="10sp"
-            android:text="Temperature"/>
+            android:text="@string/temperature_notif"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/lantern_l"
@@ -122,7 +122,7 @@
             android:fontFamily="@font/proxima_nova_semibold"
             android:textColor="@color/color_8E9AAB"
             android:textSize="10sp"
-            android:text="Lantern"/>
+            android:text="@string/lantern_notif"/>
     </LinearLayout>
 
 </LinearLayout>

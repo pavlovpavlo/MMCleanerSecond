@@ -10,14 +10,11 @@ import com.agento.mmcleaner.MyApplication
 import com.agento.mmcleaner.R
 import com.agento.mmcleaner.scan_util.model.JunkInfo
 import com.agento.mmcleaner.ui.BaseFragment
+import com.agento.mmcleaner.ui.notifications.ui.NotificationService
 import com.agento.mmcleaner.util.SingletonClassApp
-<<<<<<< HEAD
-import com.agento.mmcleaner.util.UStats
-import com.agento.mmcleaner.util.Util
-import com.agento.mmcleaner.util.UtilNotif
+
 import com.agento.mmcleaner.util.shared.LocalSharedUtil
-=======
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -47,18 +44,14 @@ class ThirdOptimizationFragment : BaseFragment(R.layout.fragment_third_optimizat
     }
 
     private fun initViews() {
-<<<<<<< HEAD
-        if(LocalSharedUtil.isNotificationOn(requireContext()))
-            UtilNotif.showScheduleNotification(requireContext())
-=======
->>>>>>> a54b71f3e8c9a125c3c44ce1ccc4fea85b255a50
+        NotificationService.refresh()
         adsLoader = thisView.findViewById(R.id.ads_loader)
         textHibernation = thisView.findViewById(R.id.text_hibernation)
         //usage = UStats.getUsageStatsList(requireContext())
         startAnimation()
         kotlinx.coroutines.GlobalScope.launch(context = Dispatchers.Main) {
             for (i in 1 until usage.size) {
-                textHibernation.text = "Hibernation ${i} of ${usage.size - 1}"
+                textHibernation.text = getString(R.string.hibernation)+ " ${i} "+ getString(R.string.of) + " ${usage.size - 1}"
                 if (i != (usage.size - 1))
                     delay(750)
             }

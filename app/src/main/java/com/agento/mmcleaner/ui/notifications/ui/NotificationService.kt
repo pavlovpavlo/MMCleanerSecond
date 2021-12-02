@@ -122,8 +122,10 @@ class NotificationService : LifecycleService() {
             notificationsHelper = NotificationsHelper(this)
 
         if (SDK_INT >= Build.VERSION_CODES.O) {
-            initializeNotificationChannel()
-            initializeRemoteViews()
+            if(LocalSharedUtil.isNotificationOn(this)) {
+                initializeNotificationChannel()
+                initializeRemoteViews()
+            }
         }
     }
 

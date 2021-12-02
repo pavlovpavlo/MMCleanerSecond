@@ -61,7 +61,7 @@
     <string name="was_released">Выпущено</string>
     <string name="optimized">Оптимизировано!</string>
     <string name="acceleration">Ускорение ...</string>
-    <string name="the_phone_is_not_fully_noptimized">Телефон не полностью \\ nоптимизирован</string>
+    <string name="the_phone_is_not_fully_noptimized">Телефон не полностью \nоптимизирован</string>
     <string name="clear_cache_and_temporary_files_to_improve_phone_performance">Очистите кеш и временные файлы для повышения производительности</string>
     <string name="exit">Выйти</string>
     <string name="allow_mm_cleaner_to_acess_your_app_statistics">Разрешить MM Cleaner доступ к статистике вашего приложения</string>
@@ -88,4 +88,17 @@
     <string name="employed">% занятых</string>
     <string name="chose_all">Выбрать все</string>
     <string name="count_app">приложения</string>
+    <string name="cleaning">Очистка ...</string>
+    <string name="notification_clear">Очистить</string>
+    <string name="notification_cancel">Отменить</string>
+    <string name="notification_optimize">Оптимизировать</string>
+    <string name="notification_charging_placeholder">Начисление% d %%</string>
+    <string name="notification_programs_slow_down_text_placeholder">% d программ замедляют скорость зарядки</string>
+    <string name="notification_residual_data_found">Обнаружены остаточные данные</string>
+    <string name="notification_after_unloading_placeholder">после выгрузки оставшаяся часть <b>% .1fMB </b> \n была очищена, чтобы освободить много памяти</string>
+    <string name="notification_ads_trash">Рекламный мусор</string>
+    <string name="notification_apps_cache">Кеш приложений</string>
+    <string name="notification_other_trash">Другой мусор</string>
+    <string name="notification_daily_description">Вы не очистили корзину за <font color="# FE6201"> 1 день </font></string>
+    <string name="of">из</string>
 </resources>

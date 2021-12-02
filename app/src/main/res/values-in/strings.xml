@@ -88,4 +88,17 @@
     <string name="employed">% dipekerjakan</string>
     <string name="chose_all">Pilih semua</string>
     <string name="count_app">aplikasi</string>
+    <string name="cleaning">Membersihkan ...</string>
+    <string name="notification_clear">Hapus</string>
+    <string name="notification_cancel">Batal</string>
+    <string name="notification_optimize">Optimalkan</string>
+    <string name="notification_charging_placeholder">Mengisi daya %d%%</string>
+    <string name="notification_programs_slow_down_text_placeholder">%d program memperlambat kecepatan pengisian</string>
+    <string name="notification_residual_data_found">Data sisa ditemukan</string>
+    <string name="notification_after_unloading_placeholder">setelah membongkar, sisa <b>%.1fMB</b>\\nditemukan dibersihkan untuk mendapatkan banyak memori</string>
+    <string name="notification_ads_trash">Sampah iklan</string>
+    <string name="notification_apps_cache">Cache aplikasi</string>
+    <string name="notification_other_trash">Sampah lainnya</string>
+    <string name="notification_daily_description">Anda belum membersihkan sampah dalam <font color="#FE6201">1 hari</font></string>
+    <string name="of">dari</string>
 </resources>
