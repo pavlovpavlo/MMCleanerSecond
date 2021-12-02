@@ -23,9 +23,11 @@ import com.agento.mmcleaner.ui.notifications.ui.NotificationService;
 import com.agento.mmcleaner.util.SingletonClassApp;
 import com.agento.mmcleaner.util.shared.LocalSharedUtil;
 import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdValue;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnPaidEventListener;
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
 import com.google.android.gms.ads.appopen.AppOpenAd;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -337,11 +339,13 @@ public class MyApplication extends Application
             appOpenAd.setFullScreenContentCallback(
                     new FullScreenContentCallback() {
 
+
                         @Override
                         public void onAdImpression() {
                             super.onAdImpression();
-                            FirebaseLogger.INSTANCE.log(FirebaseLogger.EventType.ADS_APP_OPEN_CLICK_EVENT_1);
+//                            FirebaseLogger.INSTANCE.log(FirebaseLogger.EventType.ADS_APP_OPEN_CLICK_EVENT_1);
                         }
+
 
                         /**
                          * Called when full screen content is dismissed.

@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -187,8 +188,8 @@ class SecondMainActivity : BaseActivity(R.layout.activity_second_main) {
                 hideLoader()
             }
 
-            override fun onAdClicked() {
-                super.onAdClicked()
+            override fun onAdOpened() {
+                super.onAdOpened()
                 FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
 

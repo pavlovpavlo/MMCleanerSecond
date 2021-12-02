@@ -225,6 +225,7 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
         if (mInterstitialAd != null) {
             mInterstitialAd!!.show(this@BaseActivity)
             mInterstitialAd!!.setFullScreenContentCallback(object : FullScreenContentCallback() {
+
                 override fun onAdDismissedFullScreenContent() {
                     // Called when fullscreen content is dismissed.
                     if (SingletonClassApp.getInstance().start_ads == 4) {
@@ -397,7 +398,7 @@ open class BaseActivity(contentLayoutId: Int) : AppCompatActivity(contentLayoutI
 
                 override fun onAdImpression() {
                     super.onAdImpression()
-                    FirebaseLogger.log(FirebaseLogger.EventType.ADS_INTERSTITIAL_CLICK_EVENT_2)
+//                    FirebaseLogger.log(FirebaseLogger.EventType.ADS_INTERSTITIAL_CLICK_EVENT_2)
                 }
             })
         } else {

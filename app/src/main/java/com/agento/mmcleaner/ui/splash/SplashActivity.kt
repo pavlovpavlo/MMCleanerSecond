@@ -86,6 +86,7 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
             startActivity(Intent(applicationContext, PrivacyPolicyActivity::class.java))
         }
 
+        //TODO
         val anim = ProgressBarAnimation(progressView, 0f, 100f)
         anim.duration = 6000
         progressView.startAnimation(anim)
