@@ -1,5 +1,6 @@
 package com.agento.mmcleaner.ui.clean.first_clean
 
+import android.animation.Animator
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -34,6 +35,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
 
     lateinit var loader: ImageView
     lateinit var bg_optim: ImageView
+    lateinit var bg_optim_green: ImageView
     lateinit var titleText: TextView
     private lateinit var unncessary: TextView
     private lateinit var unncessaryType: TextView
@@ -59,6 +61,7 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
 
     private fun initViews() {
         bg_optim = thisView.findViewById(R.id.bg_optim)
+        bg_optim_green = thisView.findViewById(R.id.bg_optim_green)
         loader = thisView.findViewById(R.id.loader_optimization)
         list = thisView.findViewById(R.id.process_recycler)
         titleText = thisView.findViewById(R.id.title_text)
@@ -437,9 +440,28 @@ class FirstOptimizationFragment : BaseFragment(R.layout.fragment_first_optimizat
     }
 
     private fun optimizationComplete() {
-        bg_optim.setImageResource(R.drawable.green_bg)
-        startAds();
-        SingletonClassApp.getInstance().start_ads = 1;
+        bg_optim_green.animate().alpha(1f).setDuration(1200).setListener(object : Animator.AnimatorListener{
+            override fun onAnimationStart(p0: Animator?) {
+                
+            }
+
+            override fun onAnimationEnd(p0: Animator?) {
+                startAds();
+                SingletonClassApp.getInstance().start_ads = 1;
+            }
+
+            override fun onAnimationCancel(p0: Animator?) {
+                
+            }
+
+            override fun onAnimationRepeat(p0: Animator?) {
+                
+            }
+
+        }).start()
+        bg_optim.animate().alpha(0f).setDuration(800).start()
+        //bg_optim.setImageResource(R.drawable.green_bg)
+
 //        val intent = Intent(requireContext(), FirstOptimizationEndActivity::class.java)
 //        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
 //        startActivity(intent)
