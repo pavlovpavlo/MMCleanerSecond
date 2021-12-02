@@ -93,16 +93,18 @@ class AppInstallReferrer(val context: Context) {
         Log.i("TAG", "split values amount: ${splitValues.size}")
 
         val cnvId = try {
-            splitValues.find { it.contains(CNV_ID, ignoreCase = true) }
+            splitValues.find {
+                it.contains(CNV_ID, ignoreCase = true)
+            }?.replace("$CNV_ID=", "") ?: ""
         } catch (ex: Exception) {
             ex.printStackTrace()
             Log.e("TAG", "${ex.message}")
             return
         }
 
-        LocalSharedUtil.setParameter(cnvId ?: "", CNV_ID_SHARED, context)
+        Log.i("TAG", "cnv id: $cnvId")
+        LocalSharedUtil.setParameter(cnvId, CNV_ID_SHARED, context)
         TrackerLogger.logCnvId()
-
 
         REFERRER_PARAMS.forEach { param ->
             val key = "$param="

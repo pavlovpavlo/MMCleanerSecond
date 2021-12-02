@@ -77,11 +77,10 @@ class PhoneNoOptimizedActivity : BaseActivity(R.layout.activity_phone_no_optimiz
                 hideLoader()
             }
 
-            override fun onAdClicked() {
-                super.onAdClicked()
+            override fun onAdOpened() {
+                super.onAdOpened()
                 FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
-
 //            override fun onAdFailedToLoad(var1: Int) {
 //                hideLoader()
 //            }

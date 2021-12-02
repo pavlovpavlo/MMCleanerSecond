@@ -99,14 +99,15 @@ class FirstScanEndFragment : Fragment(R.layout.fragment_first_scan_end) {
             override fun onAdLoaded() {
                 hideLoader()
             }
+
             override fun onAdClosed() {
                 hideLoader()
             }
-            override fun onAdClicked() {
-                super.onAdClicked()
+
+            override fun onAdOpened() {
+                super.onAdOpened()
                 FirebaseLogger.log(FirebaseLogger.EventType.ADS_NATIVE_CLICK_EVENT_3)
             }
-
 //            override fun onAdFailedToLoad(var1: Int) {
 //                hideLoader()
 //            }
